@@ -26,8 +26,10 @@ body{
 }
 
 #Navegador{
-    display: flex;
-    background-color: rgb(195, 196, 197);
+    display: grid;
+    grid-template-columns: 35px repeat(4,1fr) 35px;
+    grid-template-rows: 1fr;
+    background-color: #90CDD6;
     height: 12vh;
     width: 100%;
     margin-top: 0;
@@ -54,4 +56,15 @@ body{
     height: 8vh;
     margin-bottom: 1vh;
 }
+
+#imagenMenuHamburguesa{
+    display: grid;
+    grid-column: 2;
+    grid-row: 1;
+    max-height: 5vh;
+    align-self: center;
+    justify-self: left;    
+}
+
+
 }
