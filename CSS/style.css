@@ -4,7 +4,11 @@
 }
 
 body{
-    background-color: rgba(141, 135, 123, 0.801);
+    background-color: rgba(140, 134, 122, 0.801);
+}
+
+.invisible{
+    display: none;
 }
 
 @media screen and (max-height: 640px) and (max-width:640px){
@@ -19,21 +23,25 @@ body{
 }
 
 .basicosBurbuja{
-    border-radius: 35px;
+    border-radius: 10px;
     width: 85vw;
-    margin:auto
+    margin:auto;
 
 }
 
 #Navegador{
-    display: flex;
-    background-color: rgb(195, 196, 197);
+    display: grid;
+    grid-template-columns: 1fr 15vw 50vw 15vw 1fr;
+    grid-template-rows: 1fr;
+    background-color: #90CDD6;
     height: 12vh;
     width: 100%;
     margin-top: 0;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
-    
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+    z-index: 3;  
 }
 
 #CuerpoFotos{
@@ -54,4 +62,106 @@ body{
     height: 8vh;
     margin-bottom: 1vh;
 }
+
+#imagenMenuHamburguesa{
+    display: grid;
+    grid-column: 2;
+    grid-row: 1;
+    width: 60%;
+    max-height: 70%;
+    align-self: center;
+    justify-self: left;    
+}
+
+#divCarrito{
+    background-image:url("/imagenes/carrito-de-compras.png");
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    display: grid;
+    grid-column: 4;
+    grid-row: 1;
+    width: 60%;
+    height: 70%;
+    max-height: 70%;
+    align-self: center;
+    justify-self: right;
+
+    grid: 1fr  3fr / 1fr 1fr;
+}
+
+#numArticulosEnCarrito{
+    display: grid;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: right;
+    background-color: rgba(231, 81, 61, 0.938);
+    border: -1px solid transparent;
+    border-radius: 50% 50%;
+    font-size: calc(0.3em + 1vh + 1vw);
+    font-weight: bold;
+    text-align: center;
+    text-justify: center;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.tituloNombre{
+    display: grid;
+    grid-column: 3/4;
+    grid-row: 1;
+    align-self: center;
+    justify-self: center;
+    font-family: 'Tangerine', serif;
+    font-size: calc(9vw + 2vh);
+    font-weight: bolder;
+    max-width: 50vw;
+    max-height: 10vh;
+    text-align: center;
+}
+
+#carrito{
+    background-color: rgb(23, 108, 182);
+    position: absolute;
+    top: 12vh;
+    bottom: 9vh;
+    right: 0;
+    left:0;
+    margin:auto;
+    height: calc(100vh - 12vh - 8vh - 1vh - 5vh);
+    
+}
+
+#menuNavFlotante{
+    position: absolute;
+    background-color: rgb(190, 27, 27);
+    height: calc(100vh - 12vh + 10px );
+    top: calc(12vh - 10px);
+    width: 40vw;
+    height:auto;
+    z-index: 1;
+    padding: 5vh 5vw 1vh;
+
+    display:grid;
+    grid-template-columns: 4;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#menuNavFlotante li{
+    list-style: none;
+    margin: 0.5vh 0;
+    width: 100%;
+    word-wrap:break-word;
+    overflow: hidden;
+}
+
+#menuNavFlotante hr{
+    width: 40vw;
+    min-width: 40vw;
+    border-color: black;
+}
+
+
 }

@@ -5,12 +5,18 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
         <title>Document</title>
     </head>
     <body>        
         <div id="Principal">
             <nav id="Navegador" class="basicosBurbuja">
-
+                <img src="imagenes/menu.png" alt="Menu" id="imagenMenuHamburguesa">
+                <p class="tituloNombre">Le Farturè</p>
+                <div id="divCarrito">
+                    <div id="numArticulosEnCarrito"></div>
+                </div>
+                
             </nav>
             <div id="CuerpoFotos" class="basicosBurbuja">
 
@@ -21,6 +27,25 @@
             <footer id="PiePagina" class="basicosBurbuja">
 
             </footer>
+            <!--Capas ocultas de aqui para abajo-->
+            <div id="carrito" class="basicosBurbuja invisible">
+                
+
+            </div>
+            <div id="menuNavFlotante">
+                <ul>
+                    <li>Quienes Somos</li>
+                    <hr/>
+                    <li>Contacta</li>
+                    <hr/>
+                    <li>FAQ's</li>
+                    <hr/>
+                    <li>Atribuciones</li>
+                    <hr/>
+                    <li>Salir</li>
+                </ul>
+
+            </div>
         </div>
      
         <script src="js/javaScript.js"></script>
