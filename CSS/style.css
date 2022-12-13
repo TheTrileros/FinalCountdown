@@ -7,12 +7,12 @@ body{
     background-color: rgba(141, 135, 123, 0.801);
 }
 
-@media screen and (max-height: 640px) and (max-width:640px){
+@media screen and (max-height: 640px) and (max-width:640px){}
 #Principal{
     background-color: rgba(141, 123, 136, 0.801);
     width: 95vw;
     height: 100vh;
-    margin: 0 auto; 
+    margin: auto; 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -21,6 +21,7 @@ body{
 .basicosBurbuja{
     border-radius: 35px;
     width: 85vw;
+    height: 10vw;
     margin:auto
 
 }
@@ -52,6 +53,15 @@ body{
     display: flex;
     background-color: aliceblue;
     height: 8vh;
-    margin-bottom: 1vh;
+    justify-content: space-evenly;
+    font-size: calc(2vh + 1vw);
+    font-weight: normal;
+    
+
 }
+#PiePagina p{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-bottom: 0;
 }
