@@ -93,29 +93,36 @@ body{
     grid-column: 4;
     grid-row: 1;
     width: 60%;
-    height: 70%;
+    height: 10vh;
     max-height: 70%;
     align-self: center;
     justify-self: right;
 
-    grid: 1fr  3fr / 1fr 1fr;
+    grid: 1fr  3fr / 1fr 3vh;
 }
 
 #numArticulosEnCarrito{
-    display: grid;
+    position:sticky;
     grid-column: 2;
     grid-row: 1;
     justify-self: right;
     background-color: rgba(231, 81, 61, 0.938);
     border: -1px solid transparent;
     border-radius: 50% 50%;
-    font-size: calc(0.3em + 1vh + 1vw);
+    font-size: calc(0.3em + 0.7vh + 1vw);
     font-weight: bold;
     text-align: center;
     text-justify: center;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
+}
+
+#divCarrito:active{
+    width: 70%;
+    height: 70%;
+    
+    background-position:center;
 }
 
 .tituloNombre{
@@ -129,7 +136,8 @@ body{
     font-weight: bolder;
     max-width: 50vw;
     max-height: 10vh;
-    text-align: center;
+    text-align:center;
+    margin-bottom: 0;
 }
 
 #carrito{
@@ -156,6 +164,10 @@ body{
 
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
+}
+
+#Navegador>img:active{
+    width:70%;
 }
 
 #menuNavFlotante li{

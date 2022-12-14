@@ -1,5 +1,5 @@
 //Variables globales
-let numCosasEnCarrito=0;
+let numCosasEnCarrito=3;
 let clickCarrito;
 let clickMenu;
 
@@ -17,15 +17,17 @@ function abrirCarrito(){
     else capaCarrito.classList.add("invisible");    
 }
 
+CantidadCarrito()
+
 //Funcion para cambiar el numero dentro de #numArticulosEnCarrito
 function CantidadCarrito(){
     let capaCarrito=document.getElementById("numArticulosEnCarrito");    
-    
+    console.log('hola');
     if(numCosasEnCarrito==0){
-        capaCarrito.style.zIndex=-1;
+        capaCarrito.style.opacity=0;
     }
     else{
-        capaCarrito.style.zIndex=0;
+        capaCarrito.style.opacity=1;
         capaCarrito.textContent=numCosasEnCarrito;
     }
 }
