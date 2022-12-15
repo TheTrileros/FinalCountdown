@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="CSS/style.css">
         <title>Document</title>
     </head>
     <body>        
@@ -16,13 +16,25 @@
 
             </div>
             <div id="CantidadCompra" class="basicosBurbuja">
+                <div class="cajadecantidad">
+                    <h1 class="ponme">Ponme</h1>
+                    <div class="cantidadcuadrado">
+                        <input type='text' id="cantidad" value="1" pattern="^[0-9]+">
+                        <div class="flechas">
+                            <button class='aumentar' onclick="aumentar()">˄</button>
+                            <button class='disminuir' onclick="disminuir()">˅</button>
+                        </div>
+                    </div>
+                    <img class="plus" src="Imagenes/cruz-blanca.png" alt="plus">
+                    <img class="carrito" src="Imagenes/carrito-compra.png" alt="carrito">
+                </div>
 
             </div>
             <footer id="PiePagina" class="basicosBurbuja">
 
             </footer>
         </div>
-     
+
         <script src="js/javaScript.js"></script>
     </body>
 </html>
