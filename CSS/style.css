@@ -1,7 +1,6 @@
 *{
     margin:0;
     padding:0;
-    color: red;
 }
 
 body{
@@ -20,9 +19,9 @@ body{
 }
 
 .basicosBurbuja{
-    border-radius: 10px;
+    border-radius: 35px;
     width: 85vw;
-    margin:auto;
+    margin:auto
 
 }
 
@@ -39,51 +38,8 @@ body{
 
 #CuerpoFotos{
     display: flex;
-    align-items: center;
-    justify-content: center;
     background-color: aliceblue;
-    height: 55vh;
-    flex-direction: column;
-}
-
-.carousel-inner{
-    border-radius: 10px;
-}
-
-.carousel{
-    height: 41vh;
-    width: 78vw;
-}
-
-.carousel img{
-    height: 40vh;
-    width: 50vh;
-}
-
-.carousel button{
-    background: transparent;
-}
-
-#nombreProducto{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 70vw;
-    height: 10vh;
-}
-
-#nombre{
-    margin-top: 10px;
-    text-align: center;
-    margin-bottom: 0rem;
-}
-
-#precio{
-    text-align: right;
-    margin-right: 10px;
-    margin-bottom: 9px;
-      
-    
+    height: 45vh;
 }
 
 #CantidadCompra{
