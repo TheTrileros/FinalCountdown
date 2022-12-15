@@ -1,6 +1,5 @@
 clickfooter=document.getElementById("PiePagina");
 clickfooter.addEventListener("click", function(){abrirfooter()});
-
 function abrirfooter(){
     let capafooter=document.getElementById("footer");
     if(capafooter.classList.contains("invisible")){
