@@ -19,16 +19,13 @@ body{
     margin: auto; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    
+    justify-content: space-between;    
 }
 
 .basicosBurbuja{
     border-radius: 10px;
     width: 85vw;
-    height: 10vw;
     margin:auto
-
 }
 
 #Navegador{
@@ -144,12 +141,27 @@ body{
     background-color: rgb(23, 108, 182);
     position: absolute;
     top: 12vh;
-    bottom: 9vh;
+    bottom: 25vh;
     right: 0;
     left:0;
-    margin:auto;
-    height: calc(100vh - 12vh - 8vh - 1vh - 5vh);
+    height: calc(100vh - 12vh - 8vh - 1vh - 5vh - 14vh - 2vh);
     
+    padding-bottom: 2vh;
+
+    overflow-y: auto;    
+}
+
+#totalCarrito{
+    background-color: rgb(23, 108, 182);
+    position: absolute;
+    bottom: auto;
+    top: calc(4vh + 12vh + (100vh - 12vh - 8vh - 1vh - 5vh - 14vh - 2vh) );
+
+    
+    right: 0;
+    left:0;
+    height: 13vh;
+
 }
 
 #menuNavFlotante{
@@ -191,10 +203,10 @@ body{
 }
 
 .unProducto{
-    width: 95%;
+    width: 90%;
     height: 10vh;
     background-color: antiquewhite;
-    margin: 1.5vh auto 0;
+    margin: 1.5vh auto 0 2vw;
     border-radius: 10px;
     
     font-family: 'Tangerine', serif;

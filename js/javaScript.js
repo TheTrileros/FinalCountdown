@@ -2,6 +2,7 @@
 let numCosasEnCarrito=0;
 let clickCarrito;
 let clickMenu;
+let pepeleraPulsada;
 
 CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
 
@@ -13,10 +14,15 @@ clickCarrito.addEventListener("click", function(){abrirCarrito()});
 //Abre el carrito
 function abrirCarrito(){
     let capaCarrito=document.getElementById("carrito");
+    let capaTCarrito=document.getElementById("totalCarrito");
     if(capaCarrito.classList.contains("invisible")){
         capaCarrito.classList.remove("invisible");
+        capaTCarrito.classList.remove("invisible");
     }
-    else capaCarrito.classList.add("invisible");    
+    else{
+        capaCarrito.classList.add("invisible");
+        capaTCarrito.classList.add("invisible"); 
+    }    
 }
 
 //Funcion para cambiar el numero dentro de #numArticulosEnCarrito
@@ -74,56 +80,20 @@ let tarta={
 
 let galeriaObjetos=[donuts, tarta]
 
-let carritoCompra=[tarta, donuts, muffins]
+let carritoCompra=[tarta, donuts, muffins, donuts, muffins, muffins,donuts, donuts, donuts]
 numCosasEnCarrito=carritoCompra.length;
 
 mostrarCarrito()
+
+//Borra el nodo padre del que pasamos
+function cuandoSeHaceClick(itemClicado){ 
+    itemClicado.parentNode.remove();        
+}
 
 function mostrarCarrito(){    
 
     for(let i=0; i<numCosasEnCarrito; i++){
 
-        /*
-        let imagenProducto=document.createElement("img");
-        imagenProducto.setAttribute("class", "fotoProducto");
-        imagenProducto.setAttribute("src", carritoCompra[i].imagen);
-        imagenProducto.setAttribute("alt", carritoCompra[i].alt);
-
-        divContenedor.appendChild(imagenProducto);
-
-        let elNombreProducto=document.createElement("div");
-        elNombreProducto.setAttribute("class", "nombreProducto");
-        elNombreProducto.innerText=carritoCompra[i].producto;
-
-        divContenedor.appendChild(elNombreProducto);
-        
-        let laCantidadProducto=document.createElement("div");
-        laCantidadProducto.setAttribute("class", "cantidadProducto");
-        laCantidadProducto.innerText="x"+carritoCompra[i].cantidad;
-
-        divContenedor.appendChild(laCantidadProducto);
-
-        let elPrecioProducto=document.createElement("div");
-        elPrecioProducto.setAttribute("class", "precioProducto");
-        elPrecioProducto.innerText=carritoCompra[i].precio+"€";
-
-        divContenedor.appendChild(elPrecioProducto);
-
-        let elPrecioProductoTotal=document.createElement("div");
-        elPrecioProductoTotal.setAttribute("class", "precioProductoTotal");
-        elPrecioProductoTotal.innerText=carritoCompra[i].precio*carritoCompra[i].cantidad+"€";
-
-        divContenedor.appendChild(elPrecioProductoTotal);
-
-        let imagenPapelera=document.createElement("img");
-        imagenPapelera.setAttribute("class", "iconoPapelera");
-        imagenPapelera.setAttribute("src", "imagenes/papelera-de-reciclaje.png");
-        imagenPapelera.setAttribute("alt", "Borrar");
-
-        divContenedor.appendChild(imagenPapelera);
-
-        document.getElementById("carrito").appendChild(divContenedor);
-        */
         divContenedor=document.createElement("div");
         divContenedor.setAttribute("class", "unProducto");       
 
@@ -137,10 +107,23 @@ function mostrarCarrito(){
 
         document.getElementById("carrito").appendChild(divContenedor);
     }
+
+    //Saber que papelera se ha pulsado
+    papeleraPulsada=document.querySelectorAll(".iconoPapelera");    
+    
+    //Añadir el Escuchador de eventos a cada imagen de papelera
+    papeleraPulsada.forEach(papelera => {
+        papelera.addEventListener("click", function(){cuandoSeHaceClick(papelera)});
+    });
 }
 
 
-console.log(numCosasEnCarrito)
+
+
+
+
+
+
 
 
 
