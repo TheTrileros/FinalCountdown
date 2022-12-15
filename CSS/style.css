@@ -56,6 +56,7 @@ body{
 }
 
 .carousel img{
+    margin-top: 10px;
     height: 40vh;
     width: 50vh;
 }
