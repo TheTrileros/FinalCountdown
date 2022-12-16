@@ -4,6 +4,33 @@ let clickCarrito;
 let clickMenu;
 let pepeleraPulsada;
 
+let donuts={
+    imagen: (new Image()).src="imagenes/donuts.jpg",
+    producto: "Donuts",
+    precio: 1.99,
+    alt:"Unos donuts",
+    cantidad: 1    
+}
+
+let muffins={
+    imagen: "imagenes/muffins.jpg",
+    producto: "Muffins",
+    precio: 5.99,
+    alt: "Muffins",
+    cantidad: 3    
+}
+
+let tarta={
+    imagen: "imagenes/tartaSueca.jpg",
+    producto: "Tarta de chocolate",
+    precio: 15.99,
+    alt: "una tarta",
+    cantidad: 2    
+}
+
+let carritoCompra=[tarta, donuts, muffins, donuts, muffins, muffins,donuts, donuts, donuts]
+mostrarCarrito();
+
 CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
 
 //Al hacer click en el carrito del navegador, se hace visible el div carrito con la compra
@@ -32,12 +59,12 @@ function abrirCarrito(){
 function CantidadCarrito(){
     let capaCarrito=document.getElementById("numArticulosEnCarrito");    
     
-    if(numCosasEnCarrito==0){
+    if(carritoCompra.length==0){
         capaCarrito.style.opacity=0;
     }
     else{
         capaCarrito.style.opacity=1;
-        capaCarrito.textContent=numCosasEnCarrito;
+        capaCarrito.textContent=carritoCompra.length;
     }
 }
 
@@ -57,41 +84,13 @@ function abrirMenuLateral(){
     }
 }
 
-let donuts={
-    imagen: (new Image()).src="imagenes/donuts.jpg",
-    producto: "Donuts",
-    precio: 1.99,
-    alt:"Unos donuts",
-    cantidad: 1    
-}
 
-let muffins={
-    imagen: "imagenes/muffins.jpg",
-    producto: "Muffins",
-    precio: 5.99,
-    alt: "Muffins",
-    cantidad: 3    
-}
-
-let tarta={
-    imagen: "imagenes/tartaSueca.jpg",
-    producto: "Tarta de chocolate",
-    precio: 15.99,
-    alt: "una tarta",
-    cantidad: 2    
-}
 
 let galeriaObjetos=[donuts, tarta]
 
-let carritoCompra=[tarta, donuts, muffins, donuts, muffins, muffins,donuts, donuts, donuts]
 
 
-mostrarCarrito()
 
-//Borra el nodo padre del que pasamos (Para usar con las papeleras del carrito)
-function cuandoSeHaceClick(itemClicado){ 
-   itemClicado.parentNode.remove();     
-}
 
 function sumarPrecios(vectorCarrito){
     sumaPrecio=0;
@@ -133,16 +132,8 @@ function mostrarCarrito(){
         document.getElementById("carrito").appendChild(divContenedor);
     }
 
-    /*
-    //Saber que papelera se ha pulsado
-    papeleraPulsada=document.querySelectorAll(".iconoPapelera");    
-    
-    //Añadir el Escuchador de eventos a cada imagen de papelera
-    papeleraPulsada.forEach(papelera => {
-        papelera.addEventListener("click", function(){cuandoSeHaceClick(papelera)});
-    });
-    */
     sumarPrecios(carritoCompra)
+    CantidadCarrito()
     
 }
 
