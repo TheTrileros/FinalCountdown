@@ -14,8 +14,7 @@
         nombre.innerHTML=donuts.nombre;
         precio.innerHTML=donuts.precio;
     }
-}
-);
+
 //Variables globales
 let numCosasEnCarrito=3;
 let clickCarrito;
