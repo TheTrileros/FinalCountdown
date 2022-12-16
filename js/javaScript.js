@@ -1,16 +1,5 @@
-//Evento temporal hasta implementar click
-window.addEventListener("load", function(event) {
 
-    //Este objeto es temporal para pruebas
-    let donuts = {
-        imagen1 : 'imagenes/donuts1.jpg',
-        imagen2 : 'imagenes/donuts2.jpg',
-        imagen3 : 'imagenes/donuts3.jpg',
-        nombre :  'Donuts',
-        precio :  '25€',
-        cantidad : 1 
-    }
-    mostrarProducto(donuts); //Lamada a función para pruebas
+
 
     //Función mostrar las fotos y la descripción del producto.
     function mostrarProducto(donuts){
