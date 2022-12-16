@@ -23,6 +23,7 @@ CantidadCarrito()
 function CantidadCarrito(){
     let capaCarrito=document.getElementById("numArticulosEnCarrito");    
     console.log('hola');
+    console.log('hola que tal');
     if(numCosasEnCarrito==0){
         capaCarrito.style.opacity=0;
     }
