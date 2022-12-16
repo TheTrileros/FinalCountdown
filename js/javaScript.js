@@ -8,7 +8,10 @@ CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
 
 //Al hacer click en el carrito del navegador, se hace visible el div carrito con la compra
 clickCarrito=document.getElementById("divCarrito");
-clickCarrito.addEventListener("click", function(){abrirCarrito()});
+/*clickCarrito.addEventListener("click", function(){abrirCarrito()});*/
+
+let vector=[document.getElementById("carrito"),document.getElementById("totalCarrito")]
+clickCarrito.addEventListener("click", function(){escondeTodo(vector)});
 
 
 //Abre el carrito
@@ -81,20 +84,38 @@ let tarta={
 let galeriaObjetos=[donuts, tarta]
 
 let carritoCompra=[tarta, donuts, muffins, donuts, muffins, muffins,donuts, donuts, donuts]
-numCosasEnCarrito=carritoCompra.length;
+
 
 mostrarCarrito()
 
-//Borra el nodo padre del que pasamos
+//Borra el nodo padre del que pasamos (Para usar con las papeleras del carrito)
 function cuandoSeHaceClick(itemClicado){ 
-    itemClicado.parentNode.remove();        
+   itemClicado.parentNode.remove();     
 }
 
+function sumarPrecios(vectorCarrito){
+    sumaPrecio=0;
+    vectorCarrito.forEach( articuloCarrito=>{
+        sumaPrecio=sumaPrecio+(articuloCarrito.precio*articuloCarrito.cantidad);
+    })    
+    //console.log(sumaPrecio.toFixed(2))
+   //Poner el precio total en el div totalCarrito    
+   document.querySelector("#totalCarrito p:nth-child( 2 )").innerHTML=sumaPrecio.toFixed(2)+"€";
+}
+
+function borrarElementoDelCarrito(indiceDelVectorCarrito){
+    carritoCompra.splice(indiceDelVectorCarrito,1);
+    mostrarCarrito();
+    console.log(carritoCompra)        
+}
+
+//Muetra cada articulo incluido en el carrito
+//Implementa los metodos de modificacion y borrado de cada producto del carrito
 function mostrarCarrito(){    
 
-    for(let i=0; i<numCosasEnCarrito; i++){
+    for(let i=0; i<carritoCompra.length; i++){
 
-        divContenedor=document.createElement("div");
+        let divContenedor=document.createElement("div");
         divContenedor.setAttribute("class", "unProducto");       
 
         divContenedor.innerHTML=
@@ -103,7 +124,8 @@ function mostrarCarrito(){
         '<div class="cantidadProducto">x'+carritoCompra[i].cantidad+'</div>'+
         '<div class="precioProducto">'+carritoCompra[i].precio+'€</div>'+
         '<div class="precioProductoTotal">'+carritoCompra[i].precio*carritoCompra[i].cantidad+'</div>'+
-        '<img class="iconoPapelera" src="imagenes/papelera-de-reciclaje.png">';
+        '<img class="iconoPapelera" src="imagenes/papelera-de-reciclaje.png" '+
+        'onClick="borrarElementoDelCarrito('+i+')">';
 
         document.getElementById("carrito").appendChild(divContenedor);
     }
@@ -115,7 +137,44 @@ function mostrarCarrito(){
     papeleraPulsada.forEach(papelera => {
         papelera.addEventListener("click", function(){cuandoSeHaceClick(papelera)});
     });
+
+    sumarPrecios(carritoCompra)
+    
 }
+
+//Esconde todas las ramas principales, y muestra las que se pasen como parametro (en forma de vector)
+//No modifica el div de menuNavFlotante.
+function escondeTodo(noEscondasEsto){
+    
+    if(!(noEscondasEsto[0].classList.contains("invisible"))){
+        let todoDivPrincipal=document.querySelectorAll("#Principal>div");
+    todoDivPrincipal.forEach(capa =>
+        capa.classList.remove("invisible")
+        
+    )
+    noEscondasEsto.forEach(capa =>        
+        capa.classList.add("invisible")
+    ) 
+
+    }
+    else{
+        let todoDivPrincipal=document.querySelectorAll("#Principal>div");
+    todoDivPrincipal.forEach(capa =>
+        capa.classList.add("invisible")
+    )
+    noEscondasEsto.forEach(capa =>        
+        capa.classList.remove("invisible")
+    ) 
+    }
+    document.getElementById("menuNavFlotante").classList.remove("invisible")
+       
+}
+
+
+
+
+
+
 
 
 
