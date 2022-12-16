@@ -105,17 +105,20 @@ function sumarPrecios(vectorCarrito){
 
 function borrarElementoDelCarrito(indiceDelVectorCarrito){
     carritoCompra.splice(indiceDelVectorCarrito,1);
-    mostrarCarrito();
-    console.log(carritoCompra)        
+    mostrarCarrito();        
 }
 
 //Muetra cada articulo incluido en el carrito
 //Implementa los metodos de modificacion y borrado de cada producto del carrito
 function mostrarCarrito(){    
+   
+    //Sistema un tanto turbio de actualizar el carrito, borrando todo y volviendo a crear
+    let listahijos=document.querySelectorAll("#carrito > .unProducto")
+        listahijos.forEach(nodoProducto => document.getElementById("carrito").removeChild(nodoProducto) )
 
-    for(let i=0; i<carritoCompra.length; i++){
+    for(let i=0; i<carritoCompra.length; i++){      
 
-        let divContenedor=document.createElement("div");
+        let divContenedor=document.createElement("div");        
         divContenedor.setAttribute("class", "unProducto");       
 
         divContenedor.innerHTML=
@@ -130,6 +133,7 @@ function mostrarCarrito(){
         document.getElementById("carrito").appendChild(divContenedor);
     }
 
+    /*
     //Saber que papelera se ha pulsado
     papeleraPulsada=document.querySelectorAll(".iconoPapelera");    
     
@@ -137,7 +141,7 @@ function mostrarCarrito(){
     papeleraPulsada.forEach(papelera => {
         papelera.addEventListener("click", function(){cuandoSeHaceClick(papelera)});
     });
-
+    */
     sumarPrecios(carritoCompra)
     
 }
