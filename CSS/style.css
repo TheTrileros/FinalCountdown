@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: rgba(140, 134, 122, 0.801);
+    background-color: rgba(140, 134, 122, 0.801);    
 }
 
 .invisible{
@@ -23,14 +23,13 @@ body{
     margin: auto; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between;    
 }
 
 .basicosBurbuja{
     border-radius: 10px;
     width: 85vw;
-    margin:auto;
-
+    margin:auto
 }
 
 #Navegador{
@@ -139,9 +138,8 @@ body{
     justify-content: space-evenly;
     font-size: calc(2vh + 1vw);
     font-weight: normal;
-    
-
 }
+
 #PiePagina p{
     display: flex;
     align-items: center;
@@ -191,6 +189,7 @@ body{
     width: 100%;
     height: 100%;
     z-index: 0;
+    opacity: 1;
 }
 
 #divCarrito:active{
@@ -215,21 +214,44 @@ body{
     margin-bottom: 0;
 }
 
-#carrito{
-    background-color: rgb(23, 108, 182);
+#carrito{    
+    background-image:url("/imagenes/wood-2045379_1280.jpg");
     position: absolute;
     top: 12vh;
-    bottom: 9vh;
+    bottom: 25vh;
     right: 0;
     left:0;
-    margin:auto;
-    height: calc(100vh - 12vh - 8vh - 1vh - 5vh);
+    height: calc(100vh - 12vh - 8vh - 1vh - 5vh - 14vh - 2vh);
+    
+    padding-bottom: 2vh;
+
+    overflow-y: auto;   
+}
+
+#totalCarrito{
+    background-color: #F0D67B;
+    position: absolute;
+    bottom: auto;
+    top: calc(4vh + 12vh + (100vh - 12vh - 8vh - 1vh - 5vh - 14vh - 2vh) );
+
+    
+    right: 0;
+    left:0;
+    height: 13vh;
+
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+
+    overflow: hidden;
+    
+    align-content: center; 
 
 }
 
 #menuNavFlotante{
     position: absolute;
-    background-color: rgb(190, 27, 27);
+    background-color: #F0D67B;
     height: calc(100vh - 12vh + 10px );
     top: calc(12vh - 10px);
     width: 35vw;
@@ -370,4 +392,92 @@ footer{
     padding: 2vh 2vw 1vh;
 }
 
+.unProducto{
+    width: 90%;
+    height: 10vh;
+    background-color: antiquewhite;
+    margin: 1.5vh auto 0 2vw;
+    border-radius: 10px;
+    
+    font-family: 'Tangerine', serif;
+    font-size: calc(0.5em + 2vh + 2vw);
+    font-weight: bold;
+    text-align: left; 
+    align-items:flex-end;
+    overflow: hidden;       
+
+    display:grid;
+    grid-template-columns: 25% 5% 45% 15% 10%;
+    grid-template-rows: 70% 30%;
 }
+
+.fotoProducto{
+    
+    height: 8vh;
+    width: 95%; 
+    border-radius: 50%;
+    align-self: center;
+    justify-self: center;
+       
+    
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+
+.nombreProducto{
+    grid-column: 3;
+    grid-row: 1;
+    overflow: hidden; 
+}
+
+.precioProducto{
+    grid-column: 3;
+    grid-row: 2;
+    overflow: hidden; 
+}
+
+.cantidadProducto{
+    grid-column: 4;
+    grid-row: 1;
+    overflow: hidden; 
+}
+
+.precioProductoTotal{
+    grid-column: 4;
+    grid-row: 2;
+    overflow: hidden; 
+}
+
+.iconoPapelera{
+    grid-column: 5;
+    grid-row: 1/2;
+    width:70%;
+}
+
+#totalCarrito p{
+    align-self: center;
+    font-family: 'Tangerine', serif;
+    font-size: calc(4vw + 2vh);
+    font-weight: bold;
+    margin-bottom: 0;
+    justify-self: center;
+    word-wrap: break-word;
+    
+}
+
+#totalCarrito p:nth-child( 2 ){    
+    font-size: calc(1em + 4vw + 4vh);
+    font-weight:900;
+    height: 10vh;
+    display:contents;
+    
+}
+
+#totalCarrito img{
+    height:10vh;
+    align-self: center;
+    justify-self: center;
+}
+
+}
+
