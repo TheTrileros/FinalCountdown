@@ -46,8 +46,30 @@ function abrirMenuLateral(){
         capaMenu.style.opacity=1;
     }
 }
-
-
+//obtener input del login
+const txt1 = document.getElementById("UserIntro");
+const psw1 = document.getElementById("PasswordIntro");
+const btn1 = document.getElementById("botonUser");
+const userconst = "Trilleros";
+const pswconst = "Contraseña";
+const wb = document.getElementById("whiteboard");
+var out1;
+var out2;
+const Login = document.getElementById("Login")
+function fun1 (){
+    out1 = txt1.value;
+    out2 = psw1.value;
+    if (out1 == userconst && out2 == pswconst){
+        console.log("Iniciaste Sesion");
+        Login.classList.add("invisible");
+        wb.classList.add("invisible")
+    } else{
+        txt1.value = "";
+        psw1.value = "";
+        alert("Contraseña o Usuario incorrecto");
+    }
+}
+btn1.addEventListener("click", fun1)
 /*let imag=document.getElementById("imagenMenuHamburguesa");
 imag.src="/imagenes/carrito-de-compras.png";*/
 
