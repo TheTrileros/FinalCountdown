@@ -164,6 +164,7 @@ function escondeTodo(noEscondasEsto){
     document.getElementById("menuNavFlotante").classList.remove("invisible")
        
 }
+console.log('por mis webs')
 
 
 
