@@ -13,18 +13,47 @@
     }
 
 //Variables globales
-let numCosasEnCarrito=3;
+let donuts={
+    imagen: (new Image()).src="imagenes/donuts.jpg",
+    producto: "Donuts",
+    precio: 1.99,
+    alt:"Unos donuts",
+    cantidad: 1    
+}
+
+let muffins={
+    imagen: "imagenes/muffins.jpg",
+    producto: "Muffins",
+    precio: 5.99,
+    alt: "Muffins",
+    cantidad: 3    
+}
+
+let tarta={
+    imagen: "imagenes/tartaSueca.jpg",
+    producto: "Tarta de chocolate",
+    precio: 15.99,
+    alt: "una tarta",
+    cantidad: 2    
+}
+
+let carritoCompra=[tarta, donuts, muffins, donuts, muffins, muffins,donuts, donuts, donuts]
+
+let numCosasEnCarrito=carritoCompra.length;
 let clickCarrito;
 let clickMenu;
 let pepeleraPulsada;
 
-
-
+mostrarCarrito();
 CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
 
 //Al hacer click en el carrito del navegador, se hace visible el div carrito con la compra
 clickCarrito=document.getElementById("divCarrito");
-clickCarrito.addEventListener("click", function(){abrirCarrito()});
+//clickCarrito.addEventListener("click", function(){abrirCarrito()});
+
+
+let noEscondasEsto=[document.getElementById("carrito"),document.getElementById("totalCarrito")]
+clickCarrito.addEventListener("click", function(){escondeTodo(noEscondasEsto)});
 
 
 //Abre el carrito
@@ -35,8 +64,6 @@ function abrirCarrito(){
     }
     else capaCarrito.classList.add("invisible");    
 }
-
-CantidadCarrito()
 
 //Funcion para cambiar el numero dentro de #numArticulosEnCarrito
 function CantidadCarrito(){
@@ -51,6 +78,7 @@ function CantidadCarrito(){
     }
 }
 
+//Abre el menu desplegable de la hamburguesa
 clickMenu=document.getElementById("imagenMenuHamburguesa");
 clickMenu.addEventListener("click", function(){abrirMenuLateral()});
 
@@ -91,56 +119,28 @@ function fun1(){
     }
 }
 
-let donuts={
-    imagen: (new Image()).src="imagenes/donuts.jpg",
-    producto: "Donuts",
-    precio: 1.99,
-    alt:"Unos donuts",
-    cantidad: 1    
-}
 
-let muffins={
-    imagen: "imagenes/muffins.jpg",
-    producto: "Muffins",
-    precio: 5.99,
-    alt: "Muffins",
-    cantidad: 3    
-}
-
-let tarta={
-    imagen: "imagenes/tartaSueca.jpg",
-    producto: "Tarta de chocolate",
-    precio: 15.99,
-    alt: "una tarta",
-    cantidad: 2    
-}
 
 let galeriaObjetos=[donuts, tarta]
 
-let carritoCompra=[tarta, donuts, muffins, donuts, muffins, muffins,donuts, donuts, donuts]
 
 
-mostrarCarrito()
 
-//Borra el nodo padre del que pasamos (Para usar con las papeleras del carrito)
-function cuandoSeHaceClick(itemClicado){
-    console.log(itemClicado.parentNode) 
-   itemClicado.parentNode.remove();     
-}
+
 
 function sumarPrecios(vectorCarrito){
     sumaPrecio=0;
     vectorCarrito.forEach( articuloCarrito=>{
         sumaPrecio=sumaPrecio+(articuloCarrito.precio*articuloCarrito.cantidad);
     })    
-    //console.log(sumaPrecio.toFixed(2))
-   //Poner el precio total en el div totalCarrito    
    document.querySelector("#totalCarrito p:nth-child( 2 )").innerHTML=sumaPrecio.toFixed(2)+"€";
 }
 
 function borrarElementoDelCarrito(indiceDelVectorCarrito){
     carritoCompra.splice(indiceDelVectorCarrito,1);
-    mostrarCarrito();        
+    numCosasEnCarrito=carritoCompra.length;
+    CantidadCarrito();
+    mostrarCarrito();            
 }
 
 //Muetra cada articulo incluido en el carrito
@@ -167,20 +167,8 @@ function mostrarCarrito(){
 
         document.getElementById("carrito").appendChild(divContenedor);
     }
-
     
-    //Saber que papelera se ha pulsado
-    papeleraPulsada=document.querySelectorAll(".iconoPapelera"); 
-    console.log(papeleraPulsada)   
-    
-    //Añadir el Escuchador de eventos a cada imagen de papelera
-    papeleraPulsada.forEach(papelera => {        
-        papelera.addEventListener("click", function(){cuandoSeHaceClick(papelera)});
-        console.log(papelera.getAttribute("onClick"));
-    });
-    
-    sumarPrecios(carritoCompra)
-    
+    sumarPrecios(carritoCompra);
 }
 
 //Esconde todas las ramas principales, y muestra las que se pasen como parametro (en forma de vector)
