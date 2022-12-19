@@ -1,3 +1,20 @@
+
+
+
+    //Función mostrar las fotos y la descripción del producto.
+    function mostrarProducto(donuts){
+        let imagen1=this.document.getElementById("imagen1");
+        let imagen2=this.document.getElementById("imagen2");
+        let imagen3=this.document.getElementById("imagen3");
+        let nombre=this.document.getElementById("nombre");
+        let precio=this.document.getElementById("precio");
+        imagen1.src=donuts.imagen1;
+        imagen2.src=donuts.imagen2;
+        imagen3.src=donuts.imagen3;
+        nombre.innerHTML=donuts.nombre;
+        precio.innerHTML=donuts.precio;
+    }
+
 //Variables globales
 let numCosasEnCarrito=3;
 let clickCarrito;
@@ -70,8 +87,7 @@ function fun1 (){
     }
 }
 btn1.addEventListener("click", fun1)
-/*let imag=document.getElementById("imagenMenuHamburguesa");
-imag.src="/imagenes/carrito-de-compras.png";*/
+
 
 
 
