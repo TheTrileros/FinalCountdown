@@ -4,6 +4,8 @@ let clickCarrito;
 let clickMenu;
 let pepeleraPulsada;
 
+
+
 CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
 
 //Al hacer click en el carrito del navegador, se hace visible el div carrito con la compra
@@ -89,7 +91,8 @@ let carritoCompra=[tarta, donuts, muffins, donuts, muffins, muffins,donuts, donu
 mostrarCarrito()
 
 //Borra el nodo padre del que pasamos (Para usar con las papeleras del carrito)
-function cuandoSeHaceClick(itemClicado){ 
+function cuandoSeHaceClick(itemClicado){
+    console.log(itemClicado.parentNode) 
    itemClicado.parentNode.remove();     
 }
 
@@ -133,15 +136,17 @@ function mostrarCarrito(){
         document.getElementById("carrito").appendChild(divContenedor);
     }
 
-    /*
+    
     //Saber que papelera se ha pulsado
-    papeleraPulsada=document.querySelectorAll(".iconoPapelera");    
+    papeleraPulsada=document.querySelectorAll(".iconoPapelera"); 
+    console.log(papeleraPulsada)   
     
     //Añadir el Escuchador de eventos a cada imagen de papelera
-    papeleraPulsada.forEach(papelera => {
+    papeleraPulsada.forEach(papelera => {        
         papelera.addEventListener("click", function(){cuandoSeHaceClick(papelera)});
+        console.log(papelera.getAttribute("onClick"));
     });
-    */
+    
     sumarPrecios(carritoCompra)
     
 }
