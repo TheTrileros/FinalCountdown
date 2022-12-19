@@ -1,17 +1,3 @@
-//Función mostrar las fotos y la descripción del producto.
-    function mostrarProducto(donuts){
-        let imagen1=this.document.getElementById("imagen1");
-        let imagen2=this.document.getElementById("imagen2");
-        let imagen3=this.document.getElementById("imagen3");
-        let nombre=this.document.getElementById("nombre");
-        let precio=this.document.getElementById("precio");
-        imagen1.src=donuts.imagen1;
-        imagen2.src=donuts.imagen2;
-        imagen3.src=donuts.imagen3;
-        nombre.innerHTML=donuts.nombre;
-        precio.innerHTML=donuts.precio;
-    }
-
 //Variables globales
 let donuts={
     imagen: (new Image()).src="imagenes/donuts.jpg",
@@ -47,23 +33,27 @@ let pepeleraPulsada;
 mostrarCarrito();
 CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
 
+
+//Función mostrar las fotos y la descripción del producto.
+function mostrarProducto(donuts){
+    let imagen1=this.document.getElementById("imagen1");
+    let imagen2=this.document.getElementById("imagen2");
+    let imagen3=this.document.getElementById("imagen3");
+    let nombre=this.document.getElementById("nombre");
+    let precio=this.document.getElementById("precio");
+    imagen1.src=donuts.imagen1;
+    imagen2.src=donuts.imagen2;
+    imagen3.src=donuts.imagen3;
+    nombre.innerHTML=donuts.nombre;
+    precio.innerHTML=donuts.precio;
+}
+
 //Al hacer click en el carrito del navegador, se hace visible el div carrito con la compra
 clickCarrito=document.getElementById("divCarrito");
-//clickCarrito.addEventListener("click", function(){abrirCarrito()});
-
 
 let noEscondasEsto=[document.getElementById("carrito"),document.getElementById("totalCarrito")]
 clickCarrito.addEventListener("click", function(){escondeTodo(noEscondasEsto)});
 
-
-//Abre el carrito
-function abrirCarrito(){
-    let capaCarrito=document.getElementById("carrito");
-    if(capaCarrito.classList.contains("invisible")){
-        capaCarrito.classList.remove("invisible");
-    }
-    else capaCarrito.classList.add("invisible");    
-}
 
 //Funcion para cambiar el numero dentro de #numArticulosEnCarrito
 function CantidadCarrito(){
@@ -119,15 +109,7 @@ function fun1(){
     }
 }
 
-
-
-let galeriaObjetos=[donuts, tarta]
-
-
-
-
-
-
+//Suma los precios de los articulos del carrito
 function sumarPrecios(vectorCarrito){
     sumaPrecio=0;
     vectorCarrito.forEach( articuloCarrito=>{
@@ -136,6 +118,7 @@ function sumarPrecios(vectorCarrito){
    document.querySelector("#totalCarrito p:nth-child( 2 )").innerHTML=sumaPrecio.toFixed(2)+"€";
 }
 
+//Borra los elementos del carrito al pulsar la papelera
 function borrarElementoDelCarrito(indiceDelVectorCarrito){
     carritoCompra.splice(indiceDelVectorCarrito,1);
     numCosasEnCarrito=carritoCompra.length;
@@ -171,7 +154,7 @@ function mostrarCarrito(){
     sumarPrecios(carritoCompra);
 }
 
-//Esconde todas las ramas principales, y muestra las que se pasen como parametro (en forma de vector)
+//Esconde todas las divs principales, y muestra las que se pasen como parametro (en forma de vector)
 //No modifica el div de menuNavFlotante.
 function escondeTodo(noEscondasEsto){
     
@@ -195,9 +178,9 @@ function escondeTodo(noEscondasEsto){
         capa.classList.remove("invisible")
     ) 
     }
-    document.getElementById("menuNavFlotante").classList.remove("invisible")
-       
+    document.getElementById("menuNavFlotante").classList.remove("invisible")       
 }
+
 
 let donuts1  = {
     imagen: 'd',
