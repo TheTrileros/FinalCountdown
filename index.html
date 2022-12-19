@@ -13,9 +13,10 @@
         <link rel="stylesheet" href="css/style.css">
         <title>Le Farturè</title>
     </head>
-    <body>        
-        <div id="Principal">
-            <nav id="Navegador" class="basicosBurbuja">
+    <body>   
+        
+        <div id="Principal" >
+            <nav id="Navegador"  class="basicosBurbuja">
                 <img src="imagenes/menu.png" alt="Menu" id="imagenMenuHamburguesa">
                 <p class="tituloNombre">Le Farturè</p>
                 <div id="divCarrito">
@@ -25,10 +26,33 @@
             </nav>
             
             <div id="cuerpoFotos" style="overflow: scroll;" class="basicosBurbuja">
+            <div id="Login">
+                <div id="tempnav">
+                    <p class="tituloNombre">Le Farturè</p>
+                </div>
+                <div id="Texts">
+                    <div id="Username">
+                        <p> Usuario:</p>
+                        <input type="text" id="UserIntro" maxlength="24">
+                    </div>
+                    <div id="Password">
+                        <p> Contraseña:</p>
+                        <input type="password" id="PasswordIntro" maxlength="12">
+                    </div>
+                </div>
+                <div id="botonfondo">
+                    <input type="button" id="botonUser" value="Introducir">
+                </div>
+                <div id="olvidapsw">
+                    <p>¿Olvidaste la contraseña?</p>
+                </div>
+            </div>
+            <div id="whiteboard">
+            </div>
+            <div id="CuerpoFotos"  style="overflow: scroll;" class="basicosBurbuja">
                 
                 
-                    
-                    <div class="carousel-inner">
+                                        <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="" class="d-block w-100" id="imagen1" alt="">                            
                         </div>
@@ -91,7 +115,7 @@
                     
             </div> 
             </div>
-            <footer id="PiePagina" class="basicosBurbuja">
+            <footer id="PiePagina"  class="basicosBurbuja">
                 <p>Quienes Somos</p>
                 <p>Contacto</p>
                 <p>FAQ's</p>
@@ -99,6 +123,11 @@
             <!--Capas ocultas de aqui para abajo-->
             <div id="carrito" class="basicosBurbuja invisible">
                 
+            </div>
+            <div id="totalCarrito" class="basicosBurbuja invisible">
+                <p>Total Carrito: </p>
+                <p>12€</p>
+                <img src="imagenes/tarjeta-de-credito.png" alt="Realizar compra" />
 
             </div>
             <div id="menuNavFlotante">
@@ -113,11 +142,11 @@
                     <hr/>
                     <li>Salir</li>
                 </ul>
-
             </div>
+            
         </div>
     
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-<script src="/js/javaScript.js"></script>
+<script src="js/javaScript.js"></script>
     </body>
 </html>
