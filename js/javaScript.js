@@ -211,7 +211,7 @@ function escondeTodo(noEscondasEsto){
 btn1.addEventListener("click", fun1)
 
 
-let donuts  = {
+let donuts1  = {
     imagen: 'd',
     nombre: 'imagenes\donuts1.jpg',
     descripción: '',
