@@ -1,7 +1,4 @@
-
-
-
-    //Función mostrar las fotos y la descripción del producto.
+//Función mostrar las fotos y la descripción del producto.
     function mostrarProducto(donuts){
         let imagen1=this.document.getElementById("imagen1");
         let imagen2=this.document.getElementById("imagen2");
