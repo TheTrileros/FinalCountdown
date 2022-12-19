@@ -65,17 +65,19 @@ function abrirMenuLateral(){
         capaMenu.style.opacity=1;
     }
 }
+
 //obtener input del login
 const txt1 = document.getElementById("UserIntro");
 const psw1 = document.getElementById("PasswordIntro");
 const btn1 = document.getElementById("botonUser");
+//btn1.addEventListener("click", fun1())
 const userconst = "Trilleros";
 const pswconst = "Contraseña";
 const wb = document.getElementById("whiteboard");
 var out1;
 var out2;
 const Login = document.getElementById("Login")
-function fun1 (){
+function fun1(){
     out1 = txt1.value;
     out2 = psw1.value;
     if (out1 == userconst && out2 == pswconst){
@@ -208,8 +210,6 @@ function escondeTodo(noEscondasEsto){
     document.getElementById("menuNavFlotante").classList.remove("invisible")
        
 }
-btn1.addEventListener("click", fun1)
-
 
 let donuts1  = {
     imagen: 'd',
