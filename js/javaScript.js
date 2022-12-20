@@ -1,5 +1,5 @@
 //Variables globales
-let donuts={
+/*let donuts={
     imagen: (new Image()).src="imagenes/donuts.jpg",
     producto: "Donuts",
     precio: 1.99,
@@ -23,7 +23,53 @@ let tarta={
     cantidad: 2    
 }
 
-let carritoCompra=[tarta, donuts, muffins, donuts, muffins, muffins,donuts, donuts, donuts]
+let donuts1  = {
+    imagen: 'd',
+    nombre: 'imagenes\donuts1.jpg',
+    descripción: '',
+}
+
+let cruasanes  = {
+    imagen: 'c',
+    nombre: 'imagenes/cruasanes.jpg',
+    descripción: '',
+}
+
+let tartaKitKat  = {
+    imagen: 'imagenes\tartaKitKat.jpg',
+    nombre: 'tartaKitKat',
+    descripción: '',
+}
+
+let tartaBrigada  = {
+    imagen: 'imagenes\tartaBrigada.jpg',
+    nombre: 'tartaSueca',
+    descripción: '',
+}
+
+let tartaSueca  = {
+    imagen: 'imagenes\tartaSueca.jpg',
+    nombre: 'tartaSueca',
+    descripción: '',
+}*/
+
+class postre{
+    constructor(nombre, imagen1, imagen2, imagen3, descripcion, precio, cantidad, paramAlt){
+        this.nombre=nombre;
+        this.imagen1=imagen1;
+        this.imagen2=imagen2;
+        this.imagen3=imagen3;
+        this.descripcion=descripcion;
+        this.precio=precio;
+        this.cantidad=cantidad;
+        this.paramAlt=paramAlt;
+    }
+}
+
+let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca.jpg", null, null, null, 15.90, 1, 'TartaSueca');
+let postredonuts=new postre("Donuts","imagenes/donuts.jpg", null, null, null, 1.99, 1, "Unos donuts")
+
+let carritoCompra=[postreTartaSueca, postredonuts]
 
 let numCosasEnCarrito=carritoCompra.length;
 let clickCarrito;
@@ -138,13 +184,13 @@ function mostrarCarrito(){
 
         let divContenedor=document.createElement("div");        
         divContenedor.setAttribute("class", "unProducto");       
-
+        
         divContenedor.innerHTML=
-        '<img class="fotoProducto" src="'+carritoCompra[i].imagen+'" />'+
-        '<div class="nombreProducto">'+carritoCompra[i].producto+'</div>'+
+        '<img class="fotoProducto" src="'+carritoCompra[i].imagen1+'" />'+
+        '<div class="nombreProducto">'+carritoCompra[i].nombre+'</div>'+
         '<div class="cantidadProducto">x'+carritoCompra[i].cantidad+'</div>'+
-        '<div class="precioProducto">'+carritoCompra[i].precio+'€</div>'+
-        '<div class="precioProductoTotal">'+carritoCompra[i].precio*carritoCompra[i].cantidad+'</div>'+
+        '<div class="precioProducto">'+carritoCompra[i].precio.toFixed(2)+'€</div>'+
+        '<div class="precioProductoTotal">'+(carritoCompra[i].precio*carritoCompra[i].cantidad).toFixed(2)+'</div>'+
         '<img class="iconoPapelera" src="imagenes/papelera-de-reciclaje.png" '+
         'onClick="borrarElementoDelCarrito('+i+')">';
 
@@ -182,37 +228,20 @@ function escondeTodo(noEscondasEsto){
 }
 
 
-let donuts1  = {
-    imagen: 'd',
-    nombre: 'imagenes\donuts1.jpg',
-    descripción: '',
-}
-
-let cruasanes  = {
-    imagen: 'c',
-    nombre: 'imagenes/cruasanes.jpg',
-    descripción: '',
-}
-
-let tartaKitKat  = {
-    imagen: 'imagenes\tartaKitKat.jpg',
-    nombre: 'tartaKitKat',
-    descripción: '',
-}
-
-let tartaBrigada  = {
-    imagen: 'imagenes\tartaBrigada.jpg',
-    nombre: 'tartaSueca',
-    descripción: '',
-}
-
-let tartaSueca  = {
-    imagen: 'imagenes\tartaSueca.jpg',
-    nombre: 'tartaSueca',
-    descripción: '',
-}
-
 let productos = [donuts,cruasanes,tartaKitKat,tartaBrigada,tartaSueca];
 let cuerpoFotos = document.getElementById("cuerpoFotos");
 
+
+/* BOTON AUMENTAR O DISMINUIR CANTIDAD */
+var inicio = 1; // Se inicia una variable en 1.
+
+function aumentar(){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id aumentar.
+var cantidad = document.getElementById('cantidad').value = ++inicio; // Se obtiene el valor del input, y se incrementa en 1 el valor que tenga.
+}
+
+function disminuir(number){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id disminuir.
+var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtiene el valor del input, y se decrementa en 1 el valor que tenga.
+}
+
+/* BOTÓN AÑADIR AL CARRITO */
 
