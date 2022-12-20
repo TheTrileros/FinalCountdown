@@ -592,6 +592,7 @@ img.aumentar {
     height: calc(100vh - 12vh - 8vh - 1vh - 5vh - 14vh - 2vh);
     
     padding-bottom: 2vh;
+    z-index: 3;
 
     overflow-y: auto; 
 }
