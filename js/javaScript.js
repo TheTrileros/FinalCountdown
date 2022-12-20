@@ -64,11 +64,19 @@ var cantidad = document.getElementById('cantidad').value = ++inicio; // Se obtie
 
 function disminuir(number){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id disminuir.
 var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtiene el valor del input, y se decrementa en 1 el valor que tenga.
-if(number === 0){
-    result = "0"
-    return result
-}
+
 }
 
 /* BOTÓN AÑADIR AL CARRITO */
-
+/*
+var cantidad = 1;
+        const preciooriginal = 3;
+        var precio = 0;
+        const btn1 = document.getElementById(bton1)
+        
+        function annadir(){
+            precio = preciooriginal
+            cantidad++;
+            precio = precio * cantidad;
+            console.log ("has solicitado ", cantidad, " objetos por ", precio, "€");
+        } */
