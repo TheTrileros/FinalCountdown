@@ -228,7 +228,7 @@ function escondeTodo(noEscondasEsto){
 }
 
 
-let productos = [donuts,cruasanes,tartaKitKat,tartaBrigada,tartaSueca];
+//let productos = [donuts,cruasanes,tartaKitKat,tartaBrigada,tartaSueca];
 let cuerpoFotos = document.getElementById("cuerpoFotos");
 
 
@@ -245,3 +245,28 @@ var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtie
 
 /* BOTÓN AÑADIR AL CARRITO */
 
+
+let clickfooter=document.getElementById("PiePagina").querySelectorAll("p");
+clickfooter[0].addEventListener("click", function (){
+
+if(document.getElementById("QuienesSomos").classList.contains("invisible")){
+    document.getElementById("QuienesSomos").classList.remove("invisible");
+
+}
+else{
+    document.getElementById("QuienesSomos").classList.add("invisible");
+}
+
+if(document.getElementById("contactanos").classList.contains("invisible")){
+    document.getElementById("contactanos").classList.remove("invisible");
+
+}
+else{
+    document.getElementById("contactanos").classList.add("invisible");
+}
+
+})
+console.log(clickfooter)
+
+clickfooter=[document.getElementById("carrito"),document.getElementById("totalCarrito")]
+clickCarrito.addEventListener("click", function(){escondeTodo(noEscondasEsto)});
