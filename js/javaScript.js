@@ -1,94 +1,4 @@
-//Función mostrar las fotos y la descripción del producto.
-    function mostrarProducto(donuts){
-        let imagen1=this.document.getElementById("imagen1");
-        let imagen2=this.document.getElementById("imagen2");
-        let imagen3=this.document.getElementById("imagen3");
-        let nombre=this.document.getElementById("nombre");
-        let precio=this.document.getElementById("precio");
-        imagen1.src=donuts.imagen1;
-        imagen2.src=donuts.imagen2;
-        imagen3.src=donuts.imagen3;
-        nombre.innerHTML=donuts.nombre;
-        precio.innerHTML=donuts.precio;
-    }
-
 //Variables globales
-let numCosasEnCarrito=3;
-let clickCarrito;
-let clickMenu;
-let pepeleraPulsada;
-
-
-
-CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
-
-//Al hacer click en el carrito del navegador, se hace visible el div carrito con la compra
-clickCarrito=document.getElementById("divCarrito");
-clickCarrito.addEventListener("click", function(){abrirCarrito()});
-
-
-//Abre el carrito
-function abrirCarrito(){
-    let capaCarrito=document.getElementById("carrito");
-    if(capaCarrito.classList.contains("invisible")){
-        capaCarrito.classList.remove("invisible");
-    }
-    else capaCarrito.classList.add("invisible");    
-}
-
-CantidadCarrito()
-
-//Funcion para cambiar el numero dentro de #numArticulosEnCarrito
-function CantidadCarrito(){
-    let capaCarrito=document.getElementById("numArticulosEnCarrito");    
-    console.log('hola');
-    if(numCosasEnCarrito==0){
-        capaCarrito.style.opacity=0;
-    }
-    else{
-        capaCarrito.style.opacity=1;
-        capaCarrito.textContent=numCosasEnCarrito;
-    }
-}
-
-clickMenu=document.getElementById("imagenMenuHamburguesa");
-clickMenu.addEventListener("click", function(){abrirMenuLateral()});
-
-function abrirMenuLateral(){
-    let capaMenu=document.getElementById("menuNavFlotante");
-    if(capaMenu.style.zIndex>0){
-        capaMenu.style.zIndex=-1;
-        capaMenu.style.opacity=0
-    }
-    else{
-        capaMenu.style.zIndex=1;
-        capaMenu.style.opacity=1;
-    }
-}
-//obtener input del login
-const txt1 = document.getElementById("UserIntro");
-const psw1 = document.getElementById("PasswordIntro");
-const btn1 = document.getElementById("botonUser");
-const userconst = "Trilleros";
-const pswconst = "Contraseña";
-const wb = document.getElementById("whiteboard");
-var out1;
-var out2;
-const Login = document.getElementById("Login")
-function fun1 (){
-    out1 = txt1.value;
-    out2 = psw1.value;
-    if (out1 == userconst && out2 == pswconst){
-        console.log("Iniciaste Sesion");
-        Login.classList.add("invisible");
-        wb.classList.add("invisible")
-    } else{
-        txt1.value = "";
-        psw1.value = "";
-        alert("Contraseña o Usuario incorrecto");
-    }
-}
-
 let donuts={
     imagen: (new Image()).src="imagenes/donuts.jpg",
     producto: "Donuts",
@@ -113,32 +23,107 @@ let tarta={
     cantidad: 2    
 }
 
-let galeriaObjetos=[donuts, tarta]
-
 let carritoCompra=[tarta, donuts, muffins, donuts, muffins, muffins,donuts, donuts, donuts]
 
+let numCosasEnCarrito=carritoCompra.length;
+let clickCarrito;
+let clickMenu;
+let pepeleraPulsada;
 
-mostrarCarrito()
+mostrarCarrito();
+CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
 
-//Borra el nodo padre del que pasamos (Para usar con las papeleras del carrito)
-function cuandoSeHaceClick(itemClicado){
-    console.log(itemClicado.parentNode) 
-   itemClicado.parentNode.remove();     
+
+//Función mostrar las fotos y la descripción del producto.
+function mostrarProducto(donuts){
+    let imagen1=this.document.getElementById("imagen1");
+    let imagen2=this.document.getElementById("imagen2");
+    let imagen3=this.document.getElementById("imagen3");
+    let nombre=this.document.getElementById("nombre");
+    let precio=this.document.getElementById("precio");
+    imagen1.src=donuts.imagen1;
+    imagen2.src=donuts.imagen2;
+    imagen3.src=donuts.imagen3;
+    nombre.innerHTML=donuts.nombre;
+    precio.innerHTML=donuts.precio;
 }
 
+//Al hacer click en el carrito del navegador, se hace visible el div carrito con la compra
+clickCarrito=document.getElementById("divCarrito");
+
+let noEscondasEsto=[document.getElementById("carrito"),document.getElementById("totalCarrito")]
+clickCarrito.addEventListener("click", function(){escondeTodo(noEscondasEsto)});
+
+
+//Funcion para cambiar el numero dentro de #numArticulosEnCarrito
+function CantidadCarrito(){
+    let capaCarrito=document.getElementById("numArticulosEnCarrito");    
+    console.log('hola');
+    if(numCosasEnCarrito==0){
+        capaCarrito.style.opacity=0;
+    }
+    else{
+        capaCarrito.style.opacity=1;
+        capaCarrito.textContent=numCosasEnCarrito;
+    }
+}
+
+//Abre el menu desplegable de la hamburguesa
+clickMenu=document.getElementById("imagenMenuHamburguesa");
+clickMenu.addEventListener("click", function(){abrirMenuLateral()});
+
+function abrirMenuLateral(){
+    let capaMenu=document.getElementById("menuNavFlotante");
+    if(capaMenu.style.zIndex>0){
+        capaMenu.style.zIndex=-1;
+        capaMenu.style.opacity=0
+    }
+    else{
+        capaMenu.style.zIndex=1;
+        capaMenu.style.opacity=1;
+    }
+}
+
+//obtener input del login
+const txt1 = document.getElementById("UserIntro");
+const psw1 = document.getElementById("PasswordIntro");
+const btn1 = document.getElementById("botonUser");
+//btn1.addEventListener("click", fun1())
+const userconst = "Trilleros";
+const pswconst = "Contraseña";
+const wb = document.getElementById("whiteboard");
+var out1;
+var out2;
+const Login = document.getElementById("Login")
+function fun1(){
+    out1 = txt1.value;
+    out2 = psw1.value;
+    if (out1 == userconst && out2 == pswconst){
+        console.log("Iniciaste Sesion");
+        Login.classList.add("invisible");
+        wb.classList.add("invisible")
+    } else{
+        txt1.value = "";
+        psw1.value = "";
+        alert("Contraseña o Usuario incorrecto");
+    }
+}
+
+//Suma los precios de los articulos del carrito
 function sumarPrecios(vectorCarrito){
     sumaPrecio=0;
     vectorCarrito.forEach( articuloCarrito=>{
         sumaPrecio=sumaPrecio+(articuloCarrito.precio*articuloCarrito.cantidad);
     })    
-    //console.log(sumaPrecio.toFixed(2))
-   //Poner el precio total en el div totalCarrito    
    document.querySelector("#totalCarrito p:nth-child( 2 )").innerHTML=sumaPrecio.toFixed(2)+"€";
 }
 
+//Borra los elementos del carrito al pulsar la papelera
 function borrarElementoDelCarrito(indiceDelVectorCarrito){
     carritoCompra.splice(indiceDelVectorCarrito,1);
-    mostrarCarrito();        
+    numCosasEnCarrito=carritoCompra.length;
+    CantidadCarrito();
+    mostrarCarrito();            
 }
 
 //Muetra cada articulo incluido en el carrito
@@ -165,23 +150,11 @@ function mostrarCarrito(){
 
         document.getElementById("carrito").appendChild(divContenedor);
     }
-
     
-    //Saber que papelera se ha pulsado
-    papeleraPulsada=document.querySelectorAll(".iconoPapelera"); 
-    console.log(papeleraPulsada)   
-    
-    //Añadir el Escuchador de eventos a cada imagen de papelera
-    papeleraPulsada.forEach(papelera => {        
-        papelera.addEventListener("click", function(){cuandoSeHaceClick(papelera)});
-        console.log(papelera.getAttribute("onClick"));
-    });
-    
-    sumarPrecios(carritoCompra)
-    
+    sumarPrecios(carritoCompra);
 }
 
-//Esconde todas las ramas principales, y muestra las que se pasen como parametro (en forma de vector)
+//Esconde todas las divs principales, y muestra las que se pasen como parametro (en forma de vector)
 //No modifica el div de menuNavFlotante.
 function escondeTodo(noEscondasEsto){
     
@@ -205,10 +178,8 @@ function escondeTodo(noEscondasEsto){
         capa.classList.remove("invisible")
     ) 
     }
-    document.getElementById("menuNavFlotante").classList.remove("invisible")
-       
+    document.getElementById("menuNavFlotante").classList.remove("invisible")       
 }
-btn1.addEventListener("click", fun1)
 
 
 let donuts1  = {
