@@ -245,3 +245,6 @@ var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtie
 
 /* BOTÓN AÑADIR AL CARRITO */
 
+
+
+/*Cambios en funcion de lo que se clique en el footer*/
