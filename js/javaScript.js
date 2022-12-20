@@ -59,8 +59,8 @@ class postre{
     }
 }
 
-let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca.jpg", null, null, null, 15.90, 1, 'TartaSueca');
-let postredonuts=new postre("Donuts","imagenes/donuts.jpg", null, null, null, 1.99, 1, "Unos donuts")
+let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca.jpg", null, null, "Una tarta sueca", 15.90, 1, 'TartaSueca');
+let postredonuts=new postre("Donuts","imagenes/donuts.jpg", null, null, "Unos donuts", 1.99, 1, "Unos donuts")
 
 let carritoCompra=[postreTartaSueca, postredonuts]
 
@@ -73,7 +73,7 @@ mostrarCarrito();
 CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
 
 
-//Función mostrar las fotos y la descripción del producto.
+//Función mostrar carrusel de fotos nombre y precio
 function mostrarProducto(donuts){
     let imagen1=this.document.getElementById("imagen1");
     let imagen2=this.document.getElementById("imagen2");
@@ -221,7 +221,7 @@ function escondeTodo(noEscondasEsto){
 }
 
 
-let productos = [donuts,cruasanes,tartaKitKat,tartaBrigada,tartaSueca];
+//let productos = [donuts,cruasanes,tartaKitKat,tartaBrigada,tartaSueca];
 let cuerpoFotos = document.getElementById("cuerpoFotos");
 
 
@@ -237,3 +237,49 @@ var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtie
 }
 
 /* BOTÓN AÑADIR AL CARRITO */
+
+//Función para mostrar los productos.
+
+function mostrarTarjetas(){
+    for(let i=0; i<carritoCompra.length; i++){      
+
+        let divTarjeta=document.createElement("div");        
+        divTarjeta.setAttribute("class", "col");
+        divTarjeta.setAttribute("onClick",'mostrarProducto('+i+')');       
+        console.log(carritoCompra);
+        divTarjeta.innerHTML=        
+        '<div clas="h-100">'+
+            '<img src="'+carritoCompra[i].imagen1+'" class="card-img-top" alt = "'+carritoCompra[i].nombre+'"/>'+
+            '<div class="card-body">'+
+                '<h5 class="card-title">'+carritoCompra[i].nombre+'</h5>'+
+                '<p class="card-text">'+carritoCompra[i].descripcion+'</p>'+
+            '</div>'
+        '</div>' 
+        console.log(divTarjeta.children);       
+        document.getElementById("tarjetas").appendChild(divTarjeta);
+
+        // '<img class="fotoProducto" src="'+carritoCompra[i].imagen1+'" />'+
+        // '<div class="nombreProducto">'+carritoCompra[i].nombre+'</div>'+
+        // '<div class="cantidadProducto">x'+carritoCompra[i].cantidad+'</div>'+
+        // '<div class="precioProducto">'+carritoCompra[i].precio.toFixed(2)+'€</div>'+
+        // '<div class="precioProductoTotal">'+(carritoCompra[i].precio*carritoCompra[i].cantidad).toFixed(2)+'</div>'+
+        // '<img class="iconoPapelera" src="imagenes/papelera-de-reciclaje.png" '+
+        // 'onClick="borrarElementoDelCarrito('+i+')">';
+
+        //document.getElementById("carrito").appendChild(divContenedor);
+    }
+    
+    //sumarPrecios(carritoCompra);
+}
+
+window.addEventListener("load", mostrarTarjetas());
+
+function mostrarProducto(ordenProducto)
+{
+    let tarjetas = document.getElementById("tarjetas");
+    tarjetas.classList.add("invisible");
+    let producto = document.getElementById("carouselExampleCaptions");
+    producto.classList.remove("invisible");
+    let nombreProducto = document.getElementById("nombreProducto");
+    nombreProducto.classList.remove("invisible")
+;}
