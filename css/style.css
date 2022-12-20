@@ -478,5 +478,395 @@ footer{
     justify-self: center;
 }
 
+/*Codigo recuadro cantidad (Kevin)*/
+.cajadecantidad {
+    display: flex;
+        align-items: center;
+        position: absolute;
+        width: 90vw;
+        height: 20vh;
+        padding-right: 10%;
+        padding-left: 10%;
 }
+
+.cajadecantidad h1 {
+    width: 40%;
+    overflow: hidden;
+}
+
+/* TEXTO */
+
+.ponme {
+    max-height: 90%;
+    margin-left: 4%;
+    margin-right: 4%;
+    color: white;
+    max-width: 25%;
+    font-size: calc(100% - vw - vh);
+}
+
+/* CANTIDAD */
+
+.cantidadcuadrado {
+    background-color: white;
+    border-radius: 10px;
+    height: 10vh;
+    width: 32%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cantidad {
+    max-width: 15%;
+    max-height: 40%;
+    border: #ffffff;
+}
+
+.flechas {
+    margin-left: 20%;
+    max-width: 0%;    
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-height: 50%;
+}
+
+.aumentar {
+    border: 0px solid #ffffff; /*anchura, estilo y color borde*/
+    background-color: #ffffff; /*color botón*/
+    color: #000000; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    text-transform: uppercase; /*capitalización texto*/
+    font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+    border-radius: 50px; /*bordes redondos*/
+    max-width: 10%;
+    max-height: 10%;
+    margin-top: 20%;
+    
+}    
+
+img.aumentar {
+    max-height: 10px;
+}
+
+.disminuir {
+    border: 0px solid #ffffff; /*anchura, estilo y color borde*/
+    background-color: #ffffff; /*color botón*/
+    color: #000000; /*color texto*/
+    text-decoration: none; /*decoración texto*/
+    text-transform: uppercase; /*capitalización texto*/
+    font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+    border-radius: 50px; /*bordes redondos*/
+    width: 30%;
+    height: 10%;
+}
+
+/* AÑADIR AL CARRITO */
+
+.plus {
+    margin-left: 8%;
+    width: 9vw;
+    height: 5vh;
+}
+
+.carrito {
+    position: relative;
+    width: 12vw;
+    height: 7vh;
+    min-height: 50%;
+    margin-right: 5%;
+}
+
+.desktop {
+    display: none;
+}
+
+}
+
+/*Control de apariencia DESKTOP (Kevin)*/
+
+/* DESKTOP */
+
+@media screen and (min-height: 640px) and (min-width:640px){
+
+    .desktoparriba {
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        height: 50vh;
+        align-items: center;
+    }
+    
+    .desktopabajo {
+        display: flex;
+        justify-content: center;
+        height: 10vh;
+        align-items: center;
+    }
+    
+    .desktop {
+        background-color: rgb(177, 135, 80);
+    }
+    
+    #PiePagina {
+        display:none;
+    }
+    
+    #Principal {
+        background-color: rgba(255, 255, 255, 0.801);
+        width: 95vw;
+        height: 100vh;
+        margin: auto; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .basicosBurbuja{
+        border-radius: 10px;
+        width: 85vw;
+        height: 10vw;
+        margin:auto
+    
+    }
+    
+    #Navegador{
+        display: grid;
+        grid-template-columns: 1fr 15vw 50vw 15vw 1fr;
+        grid-template-rows: 1fr;
+        background-color: #90CDD6;
+        height: 12vh;
+        width: 100%;
+        margin-top: 0;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+        z-index: 3;  
+    }
+    
+    #CuerpoFotos{
+        display: none;
+    }
+    
+    #CantidadCompra{
+        display: grid;
+        background-color: rgb(224, 209, 72);
+        height: 20vh;
+    }
+    
+    .cajadecantidad {
+        display: flex;
+            align-items: center;
+            position: absolute;
+            width: 90vw;
+            height: 20vh;
+            padding-right: 10%;
+    }
+    
+    .cajadecantidad h1 {
+        width: 40%;
+        overflow: hidden;
+    }
+    
+    /* TEXTO */
+    
+    .ponme {
+        max-height: 90%;
+        margin-left: 4%;
+        color: white;
+        max-width: 25%;
+        font-size: calc(100% - vw - vh);
+    }
+    
+    /* CANTIDAD */
+    
+    .cantidadcuadrado {
+        background-color: white;
+        border-radius: 10px;
+        padding-left: 20px;
+        height: 10vh;
+        width: 20%;
+        display: flex;
+        align-items: center;
+    }
+    
+    #cantidad {
+        max-width: 15%;
+        max-height: 40%;
+        border: #ffffff;
+    }
+    
+    .flechas {
+        margin-left: 20%;
+        max-width: 20%;    
+        width: 100px;
+        height: 50px;
+        
+    }
+    
+    .aumentar {
+        border: 0px solid #ffffff; /*anchura, estilo y color borde*/
+        background-color: #ffffff; /*color botón*/
+        color: #000000; /*color texto*/
+        text-decoration: none; /*decoración texto*/
+        text-transform: uppercase; /*capitalización texto*/
+        font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+        border-radius: 50px; /*bordes redondos*/
+        width: 300%;
+        font-size: 130%;
+        height: calc(50% - 100px);
+        margin-top: 20%;
+        
+    }    
+    
+    .disminuir {
+        border: 0px solid #ffffff; /*anchura, estilo y color borde*/
+        background-color: #ffffff; /*color botón*/
+        color: #000000; /*color texto*/
+        text-decoration: none; /*decoración texto*/
+        text-transform: uppercase; /*capitalización texto*/
+        font-family: 'Helvetica', sans-serif; /*tipografía texto*/
+        border-radius: 50px; /*bordes redondos*/
+        width: 300%;
+        font-size: 130%;
+        height: calc(100% - 100px);
+    }
+    
+    /* AÑADIR AL CARRITO */
+    
+    .plus {
+        margin-left: 8%;
+        width: 9vw;
+        height: 5vh;
+    }
+    
+    .carrito {
+        position: relative;
+        width: 12vw;
+        height: 7vh;
+        min-height: 50%;
+    }
+    
+    
+    
+    #imagenMenuHamburguesa{
+        display: grid;
+        grid-column: 2;
+        grid-row: 1;
+        width: 60%;
+        max-height: 70%;
+        align-self: center;
+        justify-self: left;    
+    }
+    
+    #divCarrito{
+        background-image:url("/imagenes/carrito-de-compras.png");
+        background-size:contain;
+        background-repeat: no-repeat;
+        background-position: left;
+        display: grid;
+        grid-column: 4;
+        grid-row: 1;
+        width: 60%;
+        height: 10vh;
+        max-height: 70%;
+        align-self: center;
+        justify-self: right;
+    
+        grid: 1fr  3fr / 1fr 3vh;
+    }
+    
+    #numArticulosEnCarrito{
+        position:sticky;
+        grid-column: 2;
+        grid-row: 1;
+        justify-self: right;
+        background-color: rgba(231, 81, 61, 0.938);
+        border: -1px solid transparent;
+        border-radius: 50% 50%;
+        font-size: calc(0.3em + 0.7vh + 1vw);
+        font-weight: bold;
+        text-align: center;
+        text-justify: center;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+    }
+    
+    #divCarrito:active{
+        width: 70%;
+        height: 70%;
+        
+        background-position:center;
+    }
+    
+    .tituloNombre{
+        display: grid;
+        grid-column: 3/4;
+        grid-row: 1;
+        align-self: center;
+        justify-self: center;
+        font-family: 'Tangerine', serif;
+        font-size: calc(9vw + 2vh);
+        font-weight: bolder;
+        max-width: 50vw;
+        max-height: 10vh;
+        text-align:center;
+        margin-bottom: 0;
+    }
+    
+    #carrito{
+        background-color: rgb(23, 108, 182);
+        position: absolute;
+        top: 12vh;
+        bottom: 9vh;
+        right: 0;
+        left:0;
+        margin:auto;
+        height: calc(100vh - 12vh - 8vh - 1vh - 5vh);
+        
+    }
+    
+    #menuNavFlotante{
+        position: absolute;
+        background-color: rgb(190, 27, 27);
+        height: calc(100vh - 12vh + 10px );
+        top: calc(12vh - 10px);
+        width: 35vw;
+        height:auto;
+        z-index: -1;
+        opacity:0;
+    
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    
+    #Navegador>img:active{
+        width:70%;
+    }
+    
+    #menuNavFlotante li{
+        list-style: none;
+        margin: 0;
+        width: 100%;
+        word-wrap:break-word;
+        overflow: hidden;
+    }
+    
+    #menuNavFlotante hr{
+        width: 20vw;
+        min-width: 30vw;
+        border-color: black;
+        margin: 0;
+    }
+    
+    #menuNavFlotante ul{
+        margin:0;
+        padding: 2vh 2vw 1vh;
+    }
+    
+    }
 

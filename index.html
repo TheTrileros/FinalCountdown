@@ -45,9 +45,20 @@
                 <p class="tituloNombre">Le Farturè</p>
                 <div id="divCarrito">
                     <div id="numArticulosEnCarrito"></div>
-                </div>
-                
+                </div>                
             </nav> 
+
+            <!-- Parte Exclusiva Desktop -->
+            <div class="desktop">
+                <div class="desktoparriba">
+                    <div>Parte izquierda</div>
+                    <div>Central</div>
+                    <div>Parte derecha</div>
+                </div>
+                <div class="desktopabajo">Añadir al carrito</div>
+            </div>
+                
+            <!--Parte Boton Añadir Cantidad-->
 
             <div id="CuerpoFotos" class="basicosBurbuja">                        
                 <div class="carousel-inner">
@@ -116,8 +127,18 @@
             </div>
 
             <div id="CantidadCompra" class="basicosBurbuja">
-
-
+                <div class="cajadecantidad">
+                    <h1 class="ponme">Ponme</h1>
+                    <div class="cantidadcuadrado">
+                        <input type='text' id="cantidad" value="1">
+                        <div class="flechas">
+                            <button class='aumentar' onclick="aumentar()"><img src="imagenes/flecha-arriba.png" alt="Flecha arriba"></button>
+                            <button class='disminuir' onclick="disminuir()"><img src="imagenes/flecha-abajo.png" alt="Flecha abajo"></button>
+                        </div>
+                    </div>
+                    <img class="plus" src="imagenes/cruz-blanca.png" alt="plus">
+                    <img class="carrito" src="imagenes/carrito-compra.png" alt="carrito">
+                </div>
             </div>
 
             <footer id="PiePagina"  class="basicosBurbuja">
