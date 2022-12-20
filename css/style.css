@@ -583,19 +583,29 @@ img.aumentar {
     display: none;
 }
 
-.popUpsDelFoooter{
+.popUpsDelFooter{
     position: absolute;
-    top: 12vh;
+    top: 13vh;
     bottom: 25vh;
     right: 0;
     left:0;
-    height: calc(100vh - 12vh - 8vh - 1vh - 5vh - 14vh - 2vh);
-    
+    height: calc(100vh - 13vh - 9vh);
+    background-color: aquamarine;
     padding-bottom: 2vh;
-    z-index: 3;
-
     overflow-y: auto; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
 }
+
+.tituloDelPopUp{
+    font-size: x-large;
+    font-weight: bold;
+}
+
+
+
 
 }
 

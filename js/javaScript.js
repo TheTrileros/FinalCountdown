@@ -246,8 +246,13 @@ var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtie
 /* BOTÓN AÑADIR AL CARRITO */
 
 
-let clickfooter=document.getElementById("PiePagina").querySelectorAll("p");
-clickfooter[0].addEventListener("click", function (){
+
+
+//AÑADIR DIV AL PULSAR P DEL FOOTER 
+
+//QUIENES SOMOS
+let clickQuienes=document.getElementById("PiePagina").querySelectorAll("p");
+clickQuienes[0].addEventListener("click", function (){
 
 if(document.getElementById("QuienesSomos").classList.contains("invisible")){
     document.getElementById("QuienesSomos").classList.remove("invisible");
@@ -256,6 +261,11 @@ if(document.getElementById("QuienesSomos").classList.contains("invisible")){
 else{
     document.getElementById("QuienesSomos").classList.add("invisible");
 }
+})
+
+//CONTACTO
+let clickContacto=document.getElementById("PiePagina").querySelectorAll("p");
+clickContacto[1].addEventListener("click", function (){
 
 if(document.getElementById("contactanos").classList.contains("invisible")){
     document.getElementById("contactanos").classList.remove("invisible");
@@ -264,9 +274,49 @@ if(document.getElementById("contactanos").classList.contains("invisible")){
 else{
     document.getElementById("contactanos").classList.add("invisible");
 }
-
 })
-console.log(clickfooter)
 
-clickfooter=[document.getElementById("carrito"),document.getElementById("totalCarrito")]
-clickCarrito.addEventListener("click", function(){escondeTodo(noEscondasEsto)});
+//FAQS
+let clickFAQ=document.getElementById("PiePagina").querySelectorAll("p");
+clickFAQ[2].addEventListener("click", function (){
+
+if(document.getElementById("FAQS").classList.contains("invisible")){
+    document.getElementById("FAQS").classList.remove("invisible");
+
+}
+else{
+    document.getElementById("FAQS").classList.add("invisible");
+}
+})
+
+/*-----------
+* Muestra las capas relacionadas con el menu de navegacion
+* (Dani)
+-------------*/
+
+let opcionMenuEmergente=document.querySelectorAll("#menuNavFlotante li");
+let capasPopUp= document.querySelectorAll("#Principal div.popUpsDelFoooter");
+console.log(capasPopUp)
+for(let i=0;i<opcionMenuEmergente.length-1;i++){
+    opcionMenuEmergente[i].addEventListener("click", function(){    
+        muestraPopUpsMenu(capasPopUp[i])
+    });
+}
+
+opcionMenuEmergente[4].addEventListener("click", function(){    
+    console.log("Salir")
+});
+
+
+function muestraPopUpsMenu(CapaParaMostrar){
+
+    if(CapaParaMostrar.classList.contains("invisible")){        
+        capasPopUp.forEach(capa=>capa.classList.add("invisible"))
+        CapaParaMostrar.classList.remove("invisible")
+    }
+    else{
+        CapaParaMostrar.classList.add("invisible")
+    }    
+}
+
+//--------------------------------------------------------------------
