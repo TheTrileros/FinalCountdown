@@ -4,31 +4,71 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="shortcut icon" href="#">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         
-        <title>Cuerpo</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+        
+       
+        <link rel="shortcut icon" href="#">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <title>Le Farturè</title>
     </head>
-    <body>        
-        <div id="principal">
-            <nav id="navegador" class="basicosBurbuja">
+    <body>
+        
+        <!--
+            <div id="Login">
+                <div id="tempnav">
+                    <p class="tituloNombre">Le Farturè</p>
+                </div>
+                <div id="Texts">
+                    <div id="Username">
+                        <p> Usuario:</p>
+                        <input type="text" id="UserIntro" maxlength="24">
+                    </div>
+                    <div id="Password">
+                        <p> Contraseña:</p>
+                        <input type="password" id="PasswordIntro" maxlength="12">
+                    </div>
+                </div>
+                <div id="botonfondo">
+                    <input type="button" id="botonUser" value="Introducir">
+                </div>
+                <div id="olvidapsw">
+                    <p>¿Olvidaste la contraseña?</p>
+                </div>
+            </div>
+            <div id="whiteboard"></div>-->        
+        
+        <div id="Principal" >
+            <nav id="Navegador"  class="basicosBurbuja">
+                <img src="imagenes/menu.png" alt="Menu" id="imagenMenuHamburguesa">
+                <p class="tituloNombre">Le Farturè</p>
+                <div id="divCarrito">
+                    <div id="numArticulosEnCarrito"></div>
+                </div>                
+            </nav> 
 
-            </nav>
-            
-            <div id="cuerpoFotos" style="overflow: scroll;" class="basicosBurbuja">
+            <!-- Parte Exclusiva Desktop -->
+            <div class="desktop">
+                <div class="desktoparriba">
+                    <div>Parte izquierda</div>
+                    <div>Central</div>
+                    <div>Parte derecha</div>
+                </div>
+                <div class="desktopabajo">Añadir al carrito</div>
+            </div>
                 
-                <!-- <div id="carouselExampleCaptions" class="carousel slide carrusel" data-bs-ride="false">
-                    
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="" class="d-block w-100" id="imagen1" alt="">                            
-                        </div>
+            <!--Parte Boton Añadir Cantidad-->
+
+            <div id="CuerpoFotos" class="basicosBurbuja">                        
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="" class="d-block w-100" id="imagen1" alt="">                            
+                    </div>
+                    <div class="carousel-item">
+                        <img src="" class="d-block w-100 img" id="imagen2" alt="">
                         <div class="carousel-item">
-                            <img src="" class="d-block w-100 img" id="imagen2" alt=""></div>
-                        <div class="carousel-item">
-                            <img src="" class="d-block w-100" id="imagen3" alt=""></div>
+                            <img src="" class="d-block w-100" id="imagen3" alt="">
                             <button class="carousel-control-prev" id ="botonIzquierda" type="button" style = "border: none;" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                 <span class="visually-hidden"></span>
@@ -38,60 +78,99 @@
                                 <span class="visually-hidden"></span>
                             </button>
                         </div>
-                <div id="nombreProducto">
+                    </div>
+                </div>
+
+                <div id="nombreProducto" class="invisible">
                     <p id="nombre">Nombre</p>
                     <p id="precio">Precio</p>
-                </div>
-                </div>
-                <div id="CantidadCompra" class="basicosBurbuja">-->
-                <div class="row row-cols-2 row-cols-md-2 g-4 tarjetas">
+                </div>            
+                
+                <div class="row row-cols-2 row-cols-md-2 g-4 tarjetas ">
                     <div class="col">
                         <div class="h-100">
-                        <img src="imagenes/cruasanes.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Producto1</h5>
-                            <p class="card-text">Descripción.</p>
-                        </div>
+                            <img src="imagenes/cruasanes.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Producto1</h5>
+                                <p class="card-text">Descripción.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="h-100">
-                        <img src="imagenes/donuts1.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Descripción</p>
-                        </div>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="h-100">
-                        <img src="imagenes/tartaBrigada.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Descripción</p>
-                        </div>
+                            <img src="imagenes/donuts1.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Descripción</p>
+                                </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="h-100">
-                        <img src="imagenes/tartaKitKat.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Descripción</p>
-                        </div>
+                            <img src="imagenes/tartaBrigada.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Descripción</p>
+                                </div>
                         </div>
                     </div>
-                    
-            </div> 
+                    <div class="col">
+                            <div class="h-100">
+                                <img src="imagenes/tartaKitKat.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Descripción</p>
+                                </div>
+                            </div>
+                    </div>
+                </div> 
             </div>
-            <footer id="piePagina" class="basicosBurbuja">
 
+            <div id="CantidadCompra" class="basicosBurbuja">
+                <div class="cajadecantidad">
+                    <h1 class="ponme">Ponme</h1>
+                    <div class="cantidadcuadrado">
+                        <input type='text' id="cantidad" value="1">
+                        <div class="flechas">
+                            <button class='aumentar' onclick="aumentar()"><img src="imagenes/flecha-arriba.png" alt="Flecha arriba"></button>
+                            <button class='disminuir' onclick="disminuir()"><img src="imagenes/flecha-abajo.png" alt="Flecha abajo"></button>
+                        </div>
+                    </div>
+                    <img class="plus" src="imagenes/cruz-blanca.png" alt="plus">
+                    <img class="carrito" src="imagenes/carrito-compra.png" alt="carrito">
+                </div>
+            </div>
+
+            <footer id="PiePagina"  class="basicosBurbuja">
+                <p>Quienes Somos</p>
+                <p>Contacto</p>
+                <p>FAQ's</p>
             </footer>
-        </div>
-     
-        <script src="js/javaScript.js"></script>
-        <!-- JavaScript Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+            <!--Capas ocultas de aqui para abajo-->
+            <div id="carrito" class="basicosBurbuja invisible">
+                
+            </div>
+            <div id="totalCarrito" class="basicosBurbuja invisible">
+                <p>Total Carrito: </p>
+                <p></p>
+                <img src="imagenes/tarjeta-de-credito.png" alt="Realizar compra" />
 
+            </div>
+            <div id="menuNavFlotante">
+                <ul>
+                    <li>Quienes Somos</li>
+                    <hr/>
+                    <li>Contacta</li>
+                    <hr/>
+                    <li>FAQ's</li>
+                    <hr/>
+                    <li>Atribuciones</li>
+                    <hr/>
+                    <li>Salir</li>
+                </ul>
+            </div>            
+        </div>    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+<script src="js/javaScript.js"></script>
     </body>
 </html>
