@@ -220,7 +220,7 @@ body{
 }
 
 #divCarrito{
-    background-image:url("/imagenes/carrito-de-compras.png");
+    background-image:url("../imagenes/carrito-de-compras.png");
     background-size:contain;
     background-repeat: no-repeat;
     background-position: left;
