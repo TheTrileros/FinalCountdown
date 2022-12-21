@@ -587,7 +587,7 @@ img.aumentar {
 
 /* DESKTOP */
 
-@media screen and (min-height: 640px) and (min-width:640px){
+@media screen and (min-height: 640px) , (min-width:640px){
 
     .desktoparriba {
         display:flex;
