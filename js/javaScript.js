@@ -258,11 +258,13 @@ var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtie
 
 //QUIENES SOMOS
 let clickQuienes=document.getElementById("PiePagina").querySelectorAll("p");
+let capasPopUpGuille=document.querySelectorAll("#Principal div.popUpsDelFooter")
 clickQuienes[0].addEventListener("click", function (){
 
 if(document.getElementById("QuienesSomos").classList.contains("invisible")){
+    
+    capasPopUpGuille.forEach(cadaUnaDeLasCapas=> cadaUnaDeLasCapas.classList.add("invisible"));
     document.getElementById("QuienesSomos").classList.remove("invisible");
-
 }
 else{
     document.getElementById("QuienesSomos").classList.add("invisible");
@@ -274,6 +276,7 @@ let clickContacto=document.getElementById("PiePagina").querySelectorAll("p");
 clickContacto[1].addEventListener("click", function (){
 
 if(document.getElementById("contactanos").classList.contains("invisible")){
+    capasPopUpGuille.forEach(cadaUnaDeLasCapas=> cadaUnaDeLasCapas.classList.add("invisible"));
     document.getElementById("contactanos").classList.remove("invisible");
 
 }
@@ -287,6 +290,7 @@ let clickFAQ=document.getElementById("PiePagina").querySelectorAll("p");
 clickFAQ[2].addEventListener("click", function (){
 
 if(document.getElementById("FAQS").classList.contains("invisible")){
+    capasPopUpGuille.forEach(cadaUnaDeLasCapas=> cadaUnaDeLasCapas.classList.add("invisible"));
     document.getElementById("FAQS").classList.remove("invisible");
 
 }
