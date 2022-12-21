@@ -81,12 +81,12 @@ class postre{
     }
 }
 
-let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca.jpg", "imagenes/tartaSueca2.jpg", "imagenes/tartaSueca3.jpg", "Una tarta sueca", 15.90, 1, 'TartaSueca');
-let postredonuts=new postre("Donuts","imagenes/donuts.jpg", "imagenes/donuts.jpg", "imagenes/donuts.jpg", "Unos donuts", 11.99, 1, "Unos donuts");
-let postreMuffins=new postre("Muffins","imagenes/muffins.jpg", null, null, "Muffins", 12.99, 1, "Muffins");
-let tartaBrigada=new postre("Tarta Brigada","imagenes/tartaBrigada.jpg", null, null, "Tarta Brigada", 13.99, 1, "Tarta Brigada");
-let tartaKikat=new postre("Tarta Kit Kat","imagenes/tartaKitKat.jpg", null, null, "Tarta Kit Kat", 13.99, 1, "Tarta Kit Kat");
-let cruasanes=new postre("Cruasanes","imagenes/cruasanes.jpg", null, null, "Cruasanes", 13.99, 1, "Crusanes");
+let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca1.jpg", "imagenes/tartaSueca2.jpg", "imagenes/tartaSueca3.jpg", "Una tarta sueca", 15.90, 1, 'TartaSueca');
+let postredonuts=new postre("Donuts","imagenes/donuts1.jpg", "imagenes/donuts2.jpg", "imagenes/donuts3.jpg", "Rosquillas con sabores variados", 11.99, 1, "Unos donuts");
+let postreMuffins=new postre("Muffins","imagenes/muffins1.jpg", "imagenes/muffins2.jpg", "imagenes/muffins3.jpg", "Esponjosos y de gran sabor", 12.99, 1, "Muffins");
+let tartaBrigada=new postre("Tarta Brigada","imagenes/tartaBrigada1.jpg", "imagenes/tartaBrigada2.jpg", "imagenes/tartaBrigada3.jpg", "Bizcocho remojado con corazón de fresa, bañada en chocolate y decorada con fresas y frutos rojos", 13.99, 1, "Tarta Brigada");
+let tartaKikat=new postre("Tarta Kit Kat","imagenes/tartaKitKat1.jpg", "imagenes/tartaKitKat2.jpg", "imagenes/tartaKitKat3.jpg", "Bizcocho de Chocolate, húmedo y esponjoso relleno con dulce de leche", 13.99, 1, "Tarta Kit Kat");
+let cruasanes=new postre("Cruasanes","imagenes/cruasanes1.jpg", "imagenes/cruasanes2.jpg", "imagenes/cruasanes3.jpg", "La masa de brioche de nuestro croissant envuelve un suave relleno de crema al caco con avellanas", 13.99, 1, "Crusanes");
 let todosPostres=[postreTartaSueca,postredonuts,postreMuffins,tartaBrigada,tartaKikat,cruasanes];
 
 let carritoCompra=[postreTartaSueca, postredonuts]
@@ -97,29 +97,23 @@ let clickMenu;
 let pepeleraPulsada;
 
 mostrarCarrito();
-CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
+ //Esconder el circulito con el numero de elementos en carrito
 
 //añadir productos al carro de la compra
-console.log(carritoCompra);
-carritoCompra[0];
+
 let clickAnaCarrito = document.getElementById("imgCarrito");
-let postreselect;
+
 
 clickAnaCarrito.addEventListener("click", () =>{
-
-    let indiceCarrito = carritoCompra.findIndex(i => i.nombre === "Donuts");
-    if(indiceCarrito === -1){
-        postreselect = postreTartaSueca;    
-        carritoCompra.push (postreselect);
-        
+    nombre=document.getElementById("nombre");    
+    let indiceCarrito = carritoCompra.findIndex(i => i.nombre === nombre.textContent);    
+    if(indiceCarrito === -1){         
+        carritoCompra.push(todosPostres.find(i => i.nombre === nombre.textContent));               
     }
     else{
         carritoCompra[indiceCarrito].cantidad += 1;
     }
-    console.log (indiceCarrito);
-    console.log(carritoCompra);
-    mostrarCarrito();
-    
+    mostrarCarrito();    
 })
 
 //Función mostrar las fotos y la descripción del producto.
@@ -296,23 +290,21 @@ var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtie
 //Función para mostrar los productos.
 
 function mostrarTarjetas(){
-    for(let i=0; i<todosPostres.length; i++){      
-
-        let divTarjeta=document.createElement("div");        
-        divTarjeta.setAttribute("class", "col");
-        divTarjeta.setAttribute("onClick",'mostrarProducto('+i+')');
-        divTarjeta.innerHTML=        
-        '<div clas="h-100">'+
-            '<img src="'+todosPostres[i].imagen1+'" class="card-img-top" alt = "'+todosPostres[i].nombre+'"/>'+
-            '<div class="card-body tarjeta">'+
-                '<p class="card-title">'+todosPostres[i].nombre+'</p>'+
-                '<p class="card-text">'+todosPostres[i].descripcion+'</p>'+
-            '</div>'
-        '</div>'             
-        document.getElementById("tarjetas").appendChild(divTarjeta);
-
-    
-    }
+        for(let i=0; i<todosPostres.length; i++){  
+            let divTarjeta=document.createElement("div");        
+            divTarjeta.setAttribute("class", "col");
+            divTarjeta.setAttribute("onClick",'mostrarProducto('+i+')');
+            divTarjeta.innerHTML=        
+            '<div clas="h-100">'+
+                '<img src="'+todosPostres[i].imagen1+'" class="card-img-top" alt = "'+todosPostres[i].nombre+'"/>'+
+                '<div class="card-body tarjeta">'+
+                    '<p class="card-title">'+todosPostres[i].nombre+'</p>'+
+                    '<p class="card-text">'+todosPostres[i].descripcion+'</p>'+
+                '</div>'
+            '</div>'             
+            document.getElementById("tarjetas").appendChild(divTarjeta);
+        }
+}
 /* BOTON AUMENTAR O DISMINUIR CANTIDAD */
 
 
@@ -431,9 +423,11 @@ function reducirCantidad(unObjetoTarta){
     
 
     //sumarPrecios(carritoCompra);
-}
+
 
 window.addEventListener("load", mostrarTarjetas());
+let volverCatalogo=document.getElementById("volverCatalogo");
+volverCatalogo.addEventListener("click",mostrarTarjetas);
 
 function mostrarProducto(ordenProducto)
 {    
@@ -453,4 +447,6 @@ function mostrarProducto(ordenProducto)
     let precio=document.getElementById("precio");
     nombre.textContent=todosPostres[ordenProducto].nombre;
     precio.textContent=todosPostres[ordenProducto].precio;
+    let cantidadCompra = document.getElementById("CantidadCompra");
+    cantidadCompra.classList.remove("invisible");
 }

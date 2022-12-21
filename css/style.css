@@ -100,7 +100,14 @@ body{
  .carousel button{
     background: transparent;
     border-style: none;
-} 
+}
+
+.nombrePrecio{
+    float: left;
+}
+.volverCatalogo{
+    float: right;
+}
 
 #nombreProducto{
     display: flex;
