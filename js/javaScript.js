@@ -81,7 +81,7 @@ class postre{
     }
 }
 
-let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca1.jpg", "imagenes/tartaSueca2.jpg", "imagenes/tartaSueca3.jpg", "Una tarta sueca", 15.90, 1, 'TartaSueca');
+let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca.jpg", "imagenes/tartaSueca2.jpg", "imagenes/tartaSueca3.jpg", "Una tarta sueca", 15.90, 1, 'TartaSueca');
 let postredonuts=new postre("Donuts","imagenes/donuts.jpg", "imagenes/donuts.jpg", "imagenes/donuts.jpg", "Unos donuts", 11.99, 1, "Unos donuts");
 let postreMuffins=new postre("Muffins","imagenes/muffins.jpg", null, null, "Muffins", 12.99, 1, "Muffins");
 let tartaBrigada=new postre("Tarta Brigada","imagenes/tartaBrigada.jpg", null, null, "Tarta Brigada", 13.99, 1, "Tarta Brigada");
@@ -100,12 +100,12 @@ mostrarCarrito();
 CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
 
 //añadir productos al carro de la compra
-console.log(carritoCompra)
-carritoCompra[0]
-let clickAñaCarrito = document.getElementById("imgCarrito")
-let postreselect
+console.log(carritoCompra);
+carritoCompra[0];
+let clickAnaCarrito = document.getElementById("imgCarrito");
+let postreselect;
 
-clickAñaCarrito.addEventListener("click", () =>{
+clickAnaCarrito.addEventListener("click", () =>{
 
     let indiceCarrito = carritoCompra.findIndex(i => i.nombre === "Donuts");
     if(indiceCarrito === -1){
@@ -314,15 +314,16 @@ function mostrarTarjetas(){
     
     }
 /* BOTON AUMENTAR O DISMINUIR CANTIDAD */
-var inicio = 1; // Se inicia una variable en 1.
+
 
 function aumentar(){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id aumentar.
-var cantidad = document.getElementById('cantidad').value = ++inicio; // Se obtiene el valor del input, y se incrementa en 1 el valor que tenga.
+    document.getElementById('cantidad').value++; // Se obtiene el valor del input, y se incrementa en 1 el valor que tenga.
 }
 
-function disminuir(number){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id disminuir.
-var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtiene el valor del input, y se decrementa en 1 el valor que tenga.
+function disminuir(){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id disminuir.
+   document.getElementById('cantidad').value--; // Se obtiene el valor del input, y se decrementa en 1 el valor que tenga.
 }
+
 
 /* BOTÓN AÑADIR AL CARRITO */
 

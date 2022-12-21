@@ -124,7 +124,7 @@ body{
 
 #CantidadCompra{
     display: flex;
-    background-color: aliceblue;
+    background-color: rgb(234, 236, 121);
     height: 20vh;
 }
 
@@ -155,7 +155,7 @@ body{
 }
 
 #divCarrito{
-    background-image:url("/imagenes/carrito-de-compras.png");
+    background-image:url("imagenes/carrito-de-compras.png");
     background-size:contain;
     background-repeat: no-repeat;
     background-position: left;
