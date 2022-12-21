@@ -1,73 +1,4 @@
-//Variables globales
-/*let donuts={
-    imagen: (new Image()).src="imagenes/donuts.jpg",
-    producto: "Donuts",
-    precio: 1.99,
-    alt:"Unos donuts",
-    cantidad: 1    
-}
-//Variables globales
-/*let donuts={
-    imagen: (new Image()).src="imagenes/donuts.jpg",
-    producto: "Donuts",
-    precio: 1.99,
-    alt:"Unos donuts",
-    cantidad: 1    
-}
-let muffins={
-    imagen: "imagenes/muffins.jpg",
-    producto: "Muffins",
-    precio: 5.99,
-    alt: "Muffins",
-    cantidad: 3    
-}
-let tarta={
-    imagen: "imagenes/tartaSueca.jpg",
-    producto: "Tarta de chocolate",
-    precio: 15.99,
-    alt: "una tarta",
-let muffins={
-    imagen: "imagenes/muffins.jpg",
-    producto: "Muffins",
-    precio: 5.99,
-    alt: "Muffins",
-    cantidad: 3    
-}
-    cantidad: 2    
-let tarta={
-    imagen: "imagenes/tartaSueca.jpg",
-    producto: "Tarta de chocolate",
-    precio: 15.99,
-    alt: "una tarta",
-    cantidad: 2    
-}
-}
-let donuts11  = {
-    imagen: 'd',
-    nombre: 'imagenes\donuts1.jpg',
-    descripción: '',
-}
-let cruasanes  = {
-    imagen: 'c',
-    nombre: 'imagenes/cruasanes.jpg',
-    descripción: '',
-}
-let tartaKitKat  = {
-    imagen: 'imagenes\tartaKitKat.jpg',
-    nombre: 'tartaKitKat',
-    descripción: '',
-}
-let tartaBrigada  = {
-    imagen: 'imagenes\tartaBrigada.jpg',
-    nombre: 'tartaSueca',
-    descripción: '',
-}
-let tartaSueca  = {
-    imagen: 'imagenes\tartaSueca.jpg',
-    nombre: 'tartaSueca',
-    descripción: '',
-}*/
-
+//Clase Postre para instanciar
 class postre{
     constructor(nombre, imagen1, imagen2, imagen3, descripcion, precio, cantidad, paramAlt){
         this.nombre=nombre;
@@ -81,50 +12,44 @@ class postre{
     }
 }
 
+//Variables globales
+let clickCarrito;
+let clickMenu;
+let pepeleraPulsada;
+
+//Objetos Pre-Creados
 let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca1.jpg", "imagenes/tartaSueca2.jpg", "imagenes/tartaSueca3.jpg", "Una tarta sueca", 15.90, 1, 'TartaSueca');
 let postredonuts=new postre("Donuts","imagenes/donuts.jpg", "imagenes/donuts.jpg", "imagenes/donuts.jpg", "Unos donuts", 11.99, 1, "Unos donuts");
 let postreMuffins=new postre("Muffins","imagenes/muffins.jpg", null, null, "Muffins", 12.99, 1, "Muffins");
 let tartaBrigada=new postre("Tarta Brigada","imagenes/tartaBrigada.jpg", null, null, "Tarta Brigada", 13.99, 1, "Tarta Brigada");
 let tartaKikat=new postre("Tarta Kit Kat","imagenes/tartaKitKat.jpg", null, null, "Tarta Kit Kat", 13.99, 1, "Tarta Kit Kat");
 let cruasanes=new postre("Cruasanes","imagenes/cruasanes.jpg", null, null, "Cruasanes", 13.99, 1, "Crusanes");
+
+//Vector con todos los objetos
 let todosPostres=[postreTartaSueca,postredonuts,postreMuffins,tartaBrigada,tartaKikat,cruasanes];
 
+//Vector con los objetos que hay en el carrito
 let carritoCompra=[postreTartaSueca, postredonuts]
-
 let numCosasEnCarrito=carritoCompra.length;
-let clickCarrito;
-let clickMenu;
-let pepeleraPulsada;
 
+//Funciones que necesitan inicializacion
 mostrarCarrito();
-CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
 
-
-//Función mostrar las fotos y la descripción del producto.
-function mostrarProducto(donuts){
-    let imagen1=this.document.getElementById("imagen1");
-    let imagen2=this.document.getElementById("imagen2");
-    let imagen3=this.document.getElementById("imagen3");
-    let nombre=this.document.getElementById("nombre");
-    let precio=this.document.getElementById("precio");
-    imagen1.src=donuts.imagen1;
-    imagen2.src=donuts.imagen2;
-    imagen3.src=donuts.imagen3;
-    nombre.innerHTML=donuts.nombre;
-    precio.innerHTML=donuts.precio;
-}
-
-//Al hacer click en el carrito del navegador, se hace visible el div carrito con la compra
+/*---------------------------------------------------------------
+* Al hacer click en el carrito del navegador, se hace visible el div carrito con la compra
+* Dani
+------------------------------------------------------------------*/
 clickCarrito=document.getElementById("divCarrito");
-
 let noEscondasEsto=[document.getElementById("carrito"),document.getElementById("totalCarrito")]
 clickCarrito.addEventListener("click", function(){escondeTodo(noEscondasEsto)});
+//------------------------------------------------------------------
 
-
-//Funcion para cambiar el numero dentro de #numArticulosEnCarrito
+/*---------------------------------------------------------------
+* Funcion para cambiar el numero dentro de #numArticulosEnCarrito
+* Dani
+------------------------------------------------------------------*/
 function CantidadCarrito(){
-    let capaCarrito=document.getElementById("numArticulosEnCarrito");    
-    console.log('hola');
+    let capaCarrito=document.getElementById("numArticulosEnCarrito");
     if(numCosasEnCarrito==0){
         capaCarrito.style.opacity=0;
     }
@@ -133,8 +58,12 @@ function CantidadCarrito(){
         capaCarrito.textContent=numCosasEnCarrito;
     }
 }
+//----------------------------------------------------------------
 
-//Abre el menu desplegable de la hamburguesa
+/*---------------------------------------------------------------
+* Abre el menu desplegable de la hamburguesa
+* Dani
+------------------------------------------------------------------*/
 clickMenu=document.getElementById("imagenMenuHamburguesa");
 clickMenu.addEventListener("click", function(){abrirMenuLateral()});
 
@@ -149,8 +78,12 @@ function abrirMenuLateral(){
         capaMenu.style.opacity=1;
     }
 }
+//----------------------------------------------------------------
 
-//obtener input del login
+/*---------------------------------------------------------------
+* obtener input del login
+* Diego
+------------------------------------------------------------------*/
 const txt1 = document.getElementById("UserIntro");
 const psw1 = document.getElementById("PasswordIntro");
 const btn1 = document.getElementById("botonUser");
@@ -174,8 +107,12 @@ function fun1(){
         alert("Contraseña o Usuario incorrecto");
     }
 }
+//---------------------------------------------------------------
 
-//Suma los precios de los articulos del carrito
+/*---------------------------------------------------------------
+* Suma los precios de los articulos del carrito
+* Dani
+------------------------------------------------------------------*/
 function sumarPrecios(vectorCarrito){
     sumaPrecio=0;
     vectorCarrito.forEach( articuloCarrito=>{
@@ -183,20 +120,27 @@ function sumarPrecios(vectorCarrito){
     })    
    document.querySelector("#totalCarrito p:nth-child( 2 )").innerHTML=sumaPrecio.toFixed(2)+"€";
 }
+//---------------------------------------------------------------
 
-//Borra los elementos del carrito al pulsar la papelera
+/*---------------------------------------------------------------
+* Borra los elementos del carrito al pulsar la papelera
+* Dani
+------------------------------------------------------------------*/
 function borrarElementoDelCarrito(indiceDelVectorCarrito){
     carritoCompra.splice(indiceDelVectorCarrito,1);
     numCosasEnCarrito=carritoCompra.length;
     CantidadCarrito();
     mostrarCarrito();            
 }
+//--------------------------------------------------------------
 
-//Muetra cada articulo incluido en el carrito
-//Implementa los metodos de modificacion y borrado de cada producto del carrito
-function mostrarCarrito(){    
-   
-    //Sistema un tanto turbio de actualizar el carrito, borrando todo y volviendo a crear
+/*---------------------------------------------------------------
+* Muestra cada articulo incluido en el carrito
+* Implementa los metodos de modificacion y borrado de cada producto del carrito
+* Dani
+------------------------------------------------------------------*/
+function mostrarCarrito(){       
+    
     let listahijos=document.querySelectorAll("#carrito > .unProducto")
         listahijos.forEach(nodoProducto => document.getElementById("carrito").removeChild(nodoProducto) )
 
@@ -217,48 +161,47 @@ function mostrarCarrito(){
         'onClick="borrarElementoDelCarrito('+i+')">';
 
         document.getElementById("carrito").appendChild(divContenedor);
-    }
-    
+    }    
     sumarPrecios(carritoCompra);
     CantidadCarrito();
 }
+//----------------------------------------------------------------------------------
 
-//Esconde todas las divs principales, y muestra las que se pasen como parametro (en forma de vector)
-//No modifica el div de menuNavFlotante.
+/*---------------------------------------------------------------
+* Esconde todas las divs principales, y muestra las que se pasen como parametro (en forma de vector)
+* No modifica el div de menuNavFlotante.
+* Dani
+------------------------------------------------------------------*/
 function escondeTodo(noEscondasEsto){    
     
     if(!(noEscondasEsto[0].classList.contains("invisible"))){
         let todoDivPrincipal=document.querySelectorAll("#Principal>div");
     todoDivPrincipal.forEach(capa =>
-        capa.classList.remove("invisible")
-        
-    )
+        capa.classList.remove("invisible"))
     noEscondasEsto.forEach(capa =>        
-        capa.classList.add("invisible")
-    ) 
-
+        capa.classList.add("invisible")) 
     }
     else{
         let todoDivPrincipal=document.querySelectorAll("#Principal>div");
     todoDivPrincipal.forEach(capa =>
-        capa.classList.add("invisible")
-    )
+        capa.classList.add("invisible"))
     noEscondasEsto.forEach(capa =>        
-        capa.classList.remove("invisible")
-    ) 
+        capa.classList.remove("invisible")) 
     }
     document.getElementById("menuNavFlotante").classList.remove("invisible")
     
     let capasPopUp = document.querySelectorAll("#Principal div.popUpsDelFooter");
     capasPopUp.forEach(capa=>capa.classList.add("invisible"));
 }
+//----------------------------------------------------------------------
 
-
-//let productos = [donuts,cruasanes,tartaKitKat,tartaBrigada,tartaSueca];
 let cuerpoFotos = document.getElementById("cuerpoFotos");
 
-
-/* BOTON AUMENTAR O DISMINUIR CANTIDAD */
+/*---------------------------------------------------------------
+* BOTON AUMENTAR O DISMINUIR CANTIDAD
+* Kevin
+* Modificado Diego
+------------------------------------------------------------------*/
 var inicio = 1; // Se inicia una variable en 1.
 
 function aumentar(){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id aumentar.
@@ -268,11 +211,17 @@ var cantidad = document.getElementById('cantidad').value = ++inicio; // Se obtie
 function disminuir(number){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id disminuir.
 var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtiene el valor del input, y se decrementa en 1 el valor que tenga.
 }
+//---------------------------------------------------------------
 
-/* BOTÓN AÑADIR AL CARRITO */
+/*---------------------------------------------------------------
+* BOTÓN AÑADIR AL CARRITO
+* Kevin
+------------------------------------------------------------------*/
 
-//Función para mostrar los productos.
-
+/*---------------------------------------------------------------
+* Función para mostrar los productos. Se ejecuta al cargar la pagina
+* Jesus
+------------------------------------------------------------------*/
 function mostrarTarjetas(){
     for(let i=0; i<todosPostres.length; i++){      
 
@@ -287,28 +236,16 @@ function mostrarTarjetas(){
                 '<p class="card-text">'+todosPostres[i].descripcion+'</p>'+
             '</div>'
         '</div>'             
-        document.getElementById("tarjetas").appendChild(divTarjeta);
-
-    
+        document.getElementById("tarjetas").appendChild(divTarjeta);    
     }
-/* BOTON AUMENTAR O DISMINUIR CANTIDAD */
-var inicio = 1; // Se inicia una variable en 1.
-
-function aumentar(){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id aumentar.
-var cantidad = document.getElementById('cantidad').value = ++inicio; // Se obtiene el valor del input, y se incrementa en 1 el valor que tenga.
 }
+window.addEventListener("load", mostrarTarjetas());
+//------------------------------------------------------------------
 
-function disminuir(number){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id disminuir.
-var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtiene el valor del input, y se decrementa en 1 el valor que tenga.
-}
-
-/* BOTÓN AÑADIR AL CARRITO */
-
-
-
-
-//AÑADIR DIV AL PULSAR P DEL FOOTER 
-
+/*---------------------------------------------------------------
+* AÑADIR DIV AL PULSAR P DEL FOOTER
+* Guille
+------------------------------------------------------------------*/
 //QUIENES SOMOS
 let clickQuienes=document.getElementById("PiePagina").querySelectorAll("p");
 let capasPopUpGuille=document.querySelectorAll("#Principal div.popUpsDelFooter")
@@ -351,6 +288,7 @@ else{
     document.getElementById("FAQS").classList.add("invisible");
 }
 })
+//---------------------------------------------------------------------------
 
 /*-----------
 * Muestra las capas relacionadas con el menu de navegacion
@@ -359,8 +297,6 @@ else{
 
 let opcionMenuEmergente=document.querySelectorAll("#menuNavFlotante li");
 let capasPopUp = document.querySelectorAll("#Principal div.popUpsDelFooter");
-console.log(document.querySelectorAll("#Principal div.popUpsDelFooter"));
-console.log(capasPopUp);
 
 for(let i=0;i<opcionMenuEmergente.length-1;i++){
     opcionMenuEmergente[i].addEventListener("click", function(){    
@@ -372,7 +308,6 @@ opcionMenuEmergente[4].addEventListener("click", function(){
     console.log("Salir")
 });
 
-
 function muestraPopUpsMenu(CapaParaMostrar){
 
     if(CapaParaMostrar.classList.contains("invisible")){        
@@ -383,14 +318,13 @@ function muestraPopUpsMenu(CapaParaMostrar){
         CapaParaMostrar.classList.add("invisible")
     }    
 }
-
 //--------------------------------------------------------------------
 
-/*-----------
+/*--------------------------------------------------------------------
 * Aumenta y disminuye el atributo "cantidad" de un objeto
 * Si se reduce por debajo de 0, se borra.
 * (Dani)
--------------*/
+--------------------------------------------------------------------*/
 
 function aumentarCantidad(unObjetoTarta){
     carritoCompra[unObjetoTarta].cantidad+=1;
@@ -404,14 +338,12 @@ function reducirCantidad(unObjetoTarta){
     }
     mostrarCarrito();
 }
-//------------------------------------------------------
-    
+//-----------------------------------------------------------------
 
-    //sumarPrecios(carritoCompra);
-}
-
-window.addEventListener("load", mostrarTarjetas());
-
+/*------------------------------------------------------------
+* Muestra el producto que se clica, en grande
+* Jesus 
+-------------*/
 function mostrarProducto(ordenProducto)
 {    
     let tarjetas = document.getElementById("tarjetas");
