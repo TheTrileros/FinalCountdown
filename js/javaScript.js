@@ -99,6 +99,28 @@ let pepeleraPulsada;
 mostrarCarrito();
 CantidadCarrito(); //Esconder el circulito con el numero de elementos en carrito
 
+//añadir productos al carro de la compra
+console.log(carritoCompra)
+carritoCompra[0]
+let clickAñaCarrito = document.getElementById("imgCarrito")
+let postreselect
+
+clickAñaCarrito.addEventListener("click", () =>{
+
+    let indiceCarrito = carritoCompra.findIndex(i => i.nombre === "Donuts");
+    if(indiceCarrito === -1){
+        postreselect = postreTartaSueca;    
+        carritoCompra.push (postreselect);
+        
+    }
+    else{
+        carritoCompra[indiceCarrito].cantidad += 1;
+    }
+    console.log (indiceCarrito);
+    console.log(carritoCompra);
+    mostrarCarrito();
+    
+})
 
 //Función mostrar las fotos y la descripción del producto.
 function mostrarProducto(donuts){
