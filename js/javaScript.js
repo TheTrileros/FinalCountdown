@@ -18,19 +18,18 @@ let clickMenu;
 let pepeleraPulsada;
 
 //Objetos Pre-Creados
-let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca1.jpg", "imagenes/tartaSueca2.jpg", "imagenes/tartaSueca3.jpg", "Una tarta sueca", 15.90, 1, 'TartaSueca');
-let postredonuts=new postre("Donuts","imagenes/donuts.jpg", "imagenes/donuts.jpg", "imagenes/donuts.jpg", "Unos donuts", 11.99, 1, "Unos donuts");
-let postreMuffins=new postre("Muffins","imagenes/muffins.jpg", null, null, "Muffins", 12.99, 1, "Muffins");
-let tartaBrigada=new postre("Tarta Brigada","imagenes/tartaBrigada.jpg", null, null, "Tarta Brigada", 13.99, 1, "Tarta Brigada");
-let tartaKikat=new postre("Tarta Kit Kat","imagenes/tartaKitKat.jpg", null, null, "Tarta Kit Kat", 13.99, 1, "Tarta Kit Kat");
-let cruasanes=new postre("Cruasanes","imagenes/cruasanes.jpg", null, null, "Cruasanes", 13.99, 1, "Crusanes");
+let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca1.jpg", "imagenes/tartaSueca2.jpg", "imagenes/tartaSueca3.jpg", "Una tarta sueca", 15.90, 0, 'TartaSueca');
+let postredonuts=new postre("Donuts","imagenes/donuts.jpg", "imagenes/donuts.jpg", "imagenes/donuts.jpg", "Unos donuts", 11.99, 0, "Unos donuts");
+let postreMuffins=new postre("Muffins","imagenes/muffins.jpg", null, null, "Muffins", 12.99, 0, "Muffins");
+let tartaBrigada=new postre("Tarta Brigada","imagenes/tartaBrigada.jpg", null, null, "Tarta Brigada", 13.99, 0, "Tarta Brigada");
+let tartaKikat=new postre("Tarta Kit Kat","imagenes/tartaKitKat.jpg", null, null, "Tarta Kit Kat", 13.99, 0, "Tarta Kit Kat");
+let cruasanes=new postre("Cruasanes","imagenes/cruasanes.jpg", null, null, "Cruasanes", 13.99, 0, "Crusanes");
 
 //Vector con todos los objetos
 let todosPostres=[postreTartaSueca,postredonuts,postreMuffins,tartaBrigada,tartaKikat,cruasanes];
 
 //Vector con los objetos que hay en el carrito
 let carritoCompra=[postreTartaSueca, postredonuts]
-let numCosasEnCarrito=carritoCompra.length;
 
 //Funciones que necesitan inicializacion
 mostrarCarrito();
@@ -50,12 +49,12 @@ clickCarrito.addEventListener("click", function(){escondeTodo(noEscondasEsto)});
 ------------------------------------------------------------------*/
 function CantidadCarrito(){
     let capaCarrito=document.getElementById("numArticulosEnCarrito");
-    if(numCosasEnCarrito==0){
+    if(carritoCompra.length==0){
         capaCarrito.style.opacity=0;
     }
     else{
         capaCarrito.style.opacity=1;
-        capaCarrito.textContent=numCosasEnCarrito;
+        capaCarrito.textContent=carritoCompra.length;
     }
 }
 //----------------------------------------------------------------
@@ -108,6 +107,34 @@ function fun1(){
     }
 }
 //---------------------------------------------------------------
+
+/*---------------------------------------------------------------
+* Pasar al carrito al hacer click
+* Diego
+* Revisado Jesus
+* Revisado Dani
+*   Cambiados todas las cantidades de creacion de los objetos a cero, para que 
+*   funcione la inicializacion cuando el objeto no esta en el carrito previamente.
+*   Ahora entra en el carrito con la cantidad que se marca en #cantidad
+------------------------------------------------------------------*/
+
+let clickAnaCarrito = document.getElementById("imgCarrito");
+
+clickAnaCarrito.addEventListener("click", () =>{
+    nombre=document.getElementById("nombre");    
+    let indiceCarrito = carritoCompra.findIndex(i => i.nombre === nombre.textContent);    
+    if(indiceCarrito === -1){         
+        carritoCompra.push(todosPostres.find(i => i.nombre === nombre.textContent));
+        let cantidadSolicitada=document.getElementById("cantidad").value;
+        carritoCompra[carritoCompra.length-1].cantidad+=parseInt(cantidadSolicitada);                        
+    }
+    else{
+        let cantidadSolicitada=document.getElementById("cantidad").value;        
+        carritoCompra[indiceCarrito].cantidad += parseInt(cantidadSolicitada);
+    }
+    mostrarCarrito();    
+})
+//-------------------------------------------------------------------
 
 /*---------------------------------------------------------------
 * Suma los precios de los articulos del carrito
@@ -172,21 +199,28 @@ function mostrarCarrito(){
 * No modifica el div de menuNavFlotante.
 * Dani
 ------------------------------------------------------------------*/
-function escondeTodo(noEscondasEsto){    
+function escondeTodo(noEscondasEsto){      
     
-    if(!(noEscondasEsto[0].classList.contains("invisible"))){
-        let todoDivPrincipal=document.querySelectorAll("#Principal>div");
-    todoDivPrincipal.forEach(capa =>
-        capa.classList.remove("invisible"))
-    noEscondasEsto.forEach(capa =>        
-        capa.classList.add("invisible")) 
+    if(!(noEscondasEsto[0].classList.contains("invisible"))){   
+
+        let noVengoDeTarjetas=document.getElementById("tarjetas").classList.contains("invisible");
+        noEscondasEsto.forEach(capa => capa.classList.add("invisible"))
+
+        if(!noVengoDeTarjetas){            
+            document.getElementById("CuerpoFotos").classList.remove("invisible");
+            document.getElementById("tarjetas").classList.remove("invisible");
+        }
+        else{
+            document.getElementById("botonVolver").classList.remove("invisible");
+            document.getElementById("CantidadCompra").classList.remove("invisible");
+            document.getElementById("CuerpoFotos").classList.remove("invisible");
+            mostrarProducto(productoEnCarrusel);
+        }        
     }
     else{
         let todoDivPrincipal=document.querySelectorAll("#Principal>div");
-    todoDivPrincipal.forEach(capa =>
-        capa.classList.add("invisible"))
-    noEscondasEsto.forEach(capa =>        
-        capa.classList.remove("invisible")) 
+    todoDivPrincipal.forEach(capa => capa.classList.add("invisible"))
+    noEscondasEsto.forEach(capa => capa.classList.remove("invisible")) 
     }
     document.getElementById("menuNavFlotante").classList.remove("invisible")
     
@@ -195,12 +229,14 @@ function escondeTodo(noEscondasEsto){
 }
 //----------------------------------------------------------------------
 
-let cuerpoFotos = document.getElementById("cuerpoFotos");
+//let cuerpoFotos = document.getElementById("cuerpoFotos");
 
 /*---------------------------------------------------------------
 * BOTON AUMENTAR O DISMINUIR CANTIDAD
 * Kevin
 * Modificado Diego
+* Modificado Dani:
+*   El numero no puede ser menor que 1.
 ------------------------------------------------------------------*/
 var inicio = 1; // Se inicia una variable en 1.
 
@@ -209,7 +245,12 @@ var cantidad = document.getElementById('cantidad').value = ++inicio; // Se obtie
 }
 
 function disminuir(number){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id disminuir.
-var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtiene el valor del input, y se decrementa en 1 el valor que tenga.
+    var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtiene el valor del input, y se decrementa en 1 el valor que tenga.
+    
+    if(cantidad<=0){
+        document.getElementById('cantidad').value = 1;
+        inicio=1;
+    }
 }
 //---------------------------------------------------------------
 
@@ -229,9 +270,9 @@ function mostrarTarjetas(){
         divTarjeta.setAttribute("class", "col");
         divTarjeta.setAttribute("onClick",'mostrarProducto('+i+')');
         divTarjeta.innerHTML=        
-        '<div clas="h-100">'+
+        '<div class="h-100">'+
             '<img src="'+todosPostres[i].imagen1+'" class="card-img-top" alt = "'+todosPostres[i].nombre+'"/>'+
-            '<div class="card-body tarjeta">'+
+            '<div class="card-body tarjetas">'+
                 '<p class="card-title">'+todosPostres[i].nombre+'</p>'+
                 '<p class="card-text">'+todosPostres[i].descripcion+'</p>'+
             '</div>'
@@ -343,7 +384,9 @@ function reducirCantidad(unObjetoTarta){
 /*------------------------------------------------------------
 * Muestra el producto que se clica, en grande
 * Jesus 
--------------*/
+* Dani: Añado Añado opciones para ajustar el div CuerpoFotos en modo carrusel
+*       
+-------------------------------------------------------------*/
 function mostrarProducto(ordenProducto)
 {    
     let tarjetas = document.getElementById("tarjetas");
@@ -361,5 +404,33 @@ function mostrarProducto(ordenProducto)
     let nombre=document.getElementById("nombre");
     let precio=document.getElementById("precio");
     nombre.textContent=todosPostres[ordenProducto].nombre;
-    precio.textContent=todosPostres[ordenProducto].precio;
+    precio.textContent=todosPostres[ordenProducto].precio.toFixed(2);
+    let cajaCantidad = document.getElementById("CantidadCompra");
+    cajaCantidad.classList.remove("invisible");
+    let btnVuelta = document.getElementById("botonVolver");
+    btnVuelta.classList.remove("invisible");
+
+    document.getElementById("CuerpoFotos").style.height= "55vh";
+    document.getElementById("CuerpoFotos").style.top= "auto";
+    document.getElementById("CuerpoFotos").style.position= "relative";    
 }
+//-----------------------------------------------------------------
+
+/*------------------------------------------------------------
+* Al pulsar el boton Volver, oculta de nuevo las capas para que se vean solo las 
+* tarjetas
+* Jesus
+* Dani: Añado opciones para agrandar el div CuerpoFotos en modo Tarjeta
+--------------------------------------------------------------*/
+function volverATarjetas(){
+    document.getElementById("tarjetas").classList.remove("invisible");    
+    document.getElementById("carouselExampleCaptions").classList.add("invisible");    
+    document.getElementById("CantidadCompra").classList.add("invisible");    
+    document.getElementById("botonVolver").classList.add("invisible");        
+    document.getElementById("detalleProducto").classList.add("invisible");
+
+    document.getElementById("CuerpoFotos").style.height= "78vh";
+    document.getElementById("CuerpoFotos").style.position= "absolute";
+    document.getElementById("CuerpoFotos").style.top= "13vh";
+} 
+//-----------------------------------------------------------------

@@ -1,3 +1,4 @@
+/*Configuracion global y clases de apollo*/
 *{
     margin:0;
     padding:0;
@@ -10,9 +11,27 @@ body{
 .invisible{
     display: none;
 }
+/*------------------------------------------*/
 
+/*Clases para pantallas pequeñas*/
 @media screen and (max-height: 640px) and (max-width:640px){
-    
+
+/*Boton Volver, para volver de la tarta del carrusel a las tarjetas*/
+.btnVolver{
+    z-index: 3;
+    position: absolute;
+    top: 66vh;
+    left: 5vw;
+    background-color: transparent;
+    width: 0vw;
+    height: 0vw;
+    border-right: 10vw solid #90CDD6;
+    border-top: 5vw solid transparent;
+    border-bottom: 5vw solid transparent;
+    box-shadow: 2vw 0 0 0 #1492cc75;
+}
+
+/*Este es el div padre*/
 #Principal{
     background-color: rgba(141, 123, 136, 0.801);
     width: 95vw;
@@ -20,15 +39,17 @@ body{
     margin: auto; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;    
+    justify-content: space-between;
 }
 
+/*Clase de apollo para asegurar la uniformidad en ancho y aspecto de bordes*/
 .basicosBurbuja{
     border-radius: 10px;
     width: 85vw;
     margin: 0 auto;
 }
 
+/*Estilo para la etiqueta nav*/
 #Navegador{
     display: grid;
     grid-template-columns: 1fr 15vw 50vw 15vw 1fr;
@@ -44,6 +65,7 @@ body{
     z-index: 3;  
 }
 
+/*Fondo blanco para el login*/
 #whiteboard{
     position: absolute;
     background-color: white;
@@ -52,40 +74,73 @@ body{
     height: 120%;
 }
 
+/*div principal donde se muestran las tarjetas y el carrusel*/
 #CuerpoFotos{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: aliceblue;
-    height: 55vh;
+    justify-content: center;    
+    background-color: #F0D67B;
+    height: 78vh;
+    position:absolute;
+    left:0;
+    right: 0;
+    top:13vh;
     overflow-y: auto ;    
 }
 
+
 .tarjetas{
     height: 80%;
-    width: 80%;
+    width: 95%;
+    padding: 0;    
 }
-
-.cardBody{
+/*
+.card-body{
     height: 30vh;
     width: 30vw;
-}
+    
+}*/
 .card{
     height: 50px;
     width: 50px;
 }
 
-.h-100 h5{
-    font-size: 10px;
+.h-100{
+    background-color: rgb(243, 239, 228);
+    border-radius: 10px;
+    width:35vw;
+    margin:0;
+}
+
+.h-100 img{
+    height: 50%;
+    image-rendering: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.col{
+    margin-bottom: 2vh;
+    height: 150px;
+    padding-right:0;
+    padding-left: 0;
+    
 }
 
 .h-100 p{
-    font-size: 10px;
+    text-align: center; 
+    font-family: 'Tangerine', serif;
+    font-size: 100%;
 }
 
 .carousel-inner{
     border-radius: 10px;
+}
+/*----------------------------------------------------------------------*/
+.card-title{
+    width: 95%;
+    margin-bottom: 0;
 }
 
 .carousel{
@@ -101,6 +156,7 @@ body{
 
 .carousel button{
     background: transparent;
+    border-color: rgba(68, 68, 67, 0.274);
 }
 
 #nombreProducto{
@@ -120,20 +176,18 @@ body{
 #precio{
     text-align: right;
     margin-right: 10px;
-    margin-bottom: 9px;
-      
-    
+    margin-bottom: 9px;    
 }
 
 #CantidadCompra{
     display: flex;
-    background-color: aliceblue;
+    background-color: #F0D67B;
     height: 20vh;
 }
 
 #PiePagina{
     display: flex;
-    background-color: aliceblue;
+    background-color: #90CDD6;
     height: 8vh;
     justify-content: space-evenly;
     font-size: calc(2vh + 1vw);
@@ -145,6 +199,7 @@ body{
     align-items: center;
     height: 100%;
     margin-bottom: 0;
+    
 }
 
 #imagenMenuHamburguesa{
@@ -520,7 +575,7 @@ footer{
         width: 90vw;
         height: 20vh;
         padding-right: 10%;
-        padding-left: 10%;
+        padding-left: 5%;
 }
 
 .cajadecantidad h1 {
@@ -536,7 +591,8 @@ footer{
     margin-right: 4%;
     color: white;
     max-width: 25%;
-    font-size: calc(100% - vw - vh);
+    font-family: 'Tangerine', serif;
+    font-size: calc(5vw + 2vh);
 }
 
 /* CANTIDAD */
@@ -544,7 +600,7 @@ footer{
 .cantidadcuadrado {
     background-color: white;
     border-radius: 10px;
-    height: 10vh;
+    height: 8vh;
     width: 32%;
     display: flex;
     align-items: center;
@@ -714,7 +770,7 @@ img.aumentar {
     
     #CantidadCompra{
         display: grid;
-        background-color: rgb(224, 209, 72);
+        background-color: #e0d148;
         height: 20vh;
     }
     
