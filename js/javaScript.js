@@ -188,9 +188,11 @@ function mostrarCarrito(){
         divContenedor.innerHTML=
         '<img class="fotoProducto" src="'+carritoCompra[i].imagen1+'" />'+
         '<div class="nombreProducto">'+carritoCompra[i].nombre+'</div>'+
-        '<div class="cantidadProducto">x'+carritoCompra[i].cantidad+'</div>'+
+        '<div class="cantidadProducto"><p class="textoCantidad">x'+carritoCompra[i].cantidad+'</p>'+
+            '<img src="imagenes/flecha-arriba.png" alt="Flecha arriba" class="flechaCantidadArriba" onClick="aumentarCantidad('+i+')">'+
+            '<img src="imagenes/flecha-abajo.png" alt="Flecha abajo" class="flechaCantidadAbajo" onClick="reducirCantidad('+i+')"></div>'+
         '<div class="precioProducto">'+carritoCompra[i].precio.toFixed(2)+'€</div>'+
-        '<div class="precioProductoTotal">'+(carritoCompra[i].precio*carritoCompra[i].cantidad).toFixed(2)+'</div>'+
+        '<div class="precioProductoTotal">'+(carritoCompra[i].precio*carritoCompra[i].cantidad).toFixed(2)+'€</div>'+
         '<img class="iconoPapelera" src="imagenes/papelera-de-reciclaje.png" '+
         'onClick="borrarElementoDelCarrito('+i+')">';
 
@@ -198,11 +200,12 @@ function mostrarCarrito(){
     }
     
     sumarPrecios(carritoCompra);
+    CantidadCarrito();
 }
 
 //Esconde todas las divs principales, y muestra las que se pasen como parametro (en forma de vector)
 //No modifica el div de menuNavFlotante.
-function escondeTodo(noEscondasEsto){
+function escondeTodo(noEscondasEsto){    
     
     if(!(noEscondasEsto[0].classList.contains("invisible"))){
         let todoDivPrincipal=document.querySelectorAll("#Principal>div");
@@ -224,11 +227,14 @@ function escondeTodo(noEscondasEsto){
         capa.classList.remove("invisible")
     ) 
     }
-    document.getElementById("menuNavFlotante").classList.remove("invisible")       
+    document.getElementById("menuNavFlotante").classList.remove("invisible")
+    
+    let capasPopUp = document.querySelectorAll("#Principal div.popUpsDelFooter");
+    capasPopUp.forEach(capa=>capa.classList.add("invisible"));
 }
 
 
-let productos = [donuts,cruasanes,tartaKitKat,tartaBrigada,tartaSueca];
+//let productos = [donuts,cruasanes,tartaKitKat,tartaBrigada,tartaSueca];
 let cuerpoFotos = document.getElementById("cuerpoFotos");
 
 
@@ -245,3 +251,104 @@ var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtie
 
 /* BOTÓN AÑADIR AL CARRITO */
 
+
+
+
+//AÑADIR DIV AL PULSAR P DEL FOOTER 
+
+//QUIENES SOMOS
+let clickQuienes=document.getElementById("PiePagina").querySelectorAll("p");
+let capasPopUpGuille=document.querySelectorAll("#Principal div.popUpsDelFooter")
+clickQuienes[0].addEventListener("click", function (){
+
+if(document.getElementById("QuienesSomos").classList.contains("invisible")){
+    
+    capasPopUpGuille.forEach(cadaUnaDeLasCapas=> cadaUnaDeLasCapas.classList.add("invisible"));
+    document.getElementById("QuienesSomos").classList.remove("invisible");
+}
+else{
+    document.getElementById("QuienesSomos").classList.add("invisible");
+}
+})
+
+//CONTACTO
+let clickContacto=document.getElementById("PiePagina").querySelectorAll("p");
+clickContacto[1].addEventListener("click", function (){
+
+if(document.getElementById("contactanos").classList.contains("invisible")){
+    capasPopUpGuille.forEach(cadaUnaDeLasCapas=> cadaUnaDeLasCapas.classList.add("invisible"));
+    document.getElementById("contactanos").classList.remove("invisible");
+
+}
+else{
+    document.getElementById("contactanos").classList.add("invisible");
+}
+})
+
+//FAQS
+let clickFAQ=document.getElementById("PiePagina").querySelectorAll("p");
+clickFAQ[2].addEventListener("click", function (){
+
+if(document.getElementById("FAQS").classList.contains("invisible")){
+    capasPopUpGuille.forEach(cadaUnaDeLasCapas=> cadaUnaDeLasCapas.classList.add("invisible"));
+    document.getElementById("FAQS").classList.remove("invisible");
+
+}
+else{
+    document.getElementById("FAQS").classList.add("invisible");
+}
+})
+
+/*-----------
+* Muestra las capas relacionadas con el menu de navegacion
+* (Dani)
+-------------*/
+
+let opcionMenuEmergente=document.querySelectorAll("#menuNavFlotante li");
+let capasPopUp = document.querySelectorAll("#Principal div.popUpsDelFooter");
+console.log(document.querySelectorAll("#Principal div.popUpsDelFooter"));
+console.log(capasPopUp);
+
+for(let i=0;i<opcionMenuEmergente.length-1;i++){
+    opcionMenuEmergente[i].addEventListener("click", function(){    
+        muestraPopUpsMenu(capasPopUp[i])
+    });
+}
+
+opcionMenuEmergente[4].addEventListener("click", function(){    
+    console.log("Salir")
+});
+
+
+function muestraPopUpsMenu(CapaParaMostrar){
+
+    if(CapaParaMostrar.classList.contains("invisible")){        
+        capasPopUp.forEach(capa=>capa.classList.add("invisible"))
+        CapaParaMostrar.classList.remove("invisible")
+    }
+    else{
+        CapaParaMostrar.classList.add("invisible")
+    }    
+}
+
+//--------------------------------------------------------------------
+
+/*-----------
+* Aumenta y disminuye el atributo "cantidad" de un objeto
+* Si se reduce por debajo de 0, se borra.
+* (Dani)
+-------------*/
+
+function aumentarCantidad(unObjetoTarta){
+    carritoCompra[unObjetoTarta].cantidad+=1;
+    mostrarCarrito();
+}
+
+function reducirCantidad(unObjetoTarta){
+    carritoCompra[unObjetoTarta].cantidad-=1;
+    if(carritoCompra[unObjetoTarta].cantidad<0){
+        borrarElementoDelCarrito(unObjetoTarta)
+    }
+    mostrarCarrito();
+}
+//------------------------------------------------------
