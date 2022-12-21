@@ -29,7 +29,7 @@ let cruasanes=new postre("Cruasanes","imagenes/cruasanes.jpg", null, null, "Crua
 let todosPostres=[postreTartaSueca,postredonuts,postreMuffins,tartaBrigada,tartaKikat,cruasanes];
 
 //Vector con los objetos que hay en el carrito
-let carritoCompra=[postreTartaSueca, postredonuts]
+let carritoCompra=[]
 
 //Funciones que necesitan inicializacion
 mostrarCarrito();
@@ -241,7 +241,7 @@ function escondeTodo(noEscondasEsto){
 var inicio = 1; // Se inicia una variable en 1.
 
 function aumentar(){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id aumentar.
-var cantidad = document.getElementById('cantidad').value = ++inicio; // Se obtiene el valor del input, y se incrementa en 1 el valor que tenga.
+    document.getElementById('cantidad').value = ++inicio; // Se obtiene el valor del input, y se incrementa en 1 el valor que tenga.
 }
 
 function disminuir(number){ // Se crean la funcion y se agrega al evento onclick en en la etiqueta button con id disminuir.
@@ -410,9 +410,14 @@ function mostrarProducto(ordenProducto)
     let btnVuelta = document.getElementById("botonVolver");
     btnVuelta.classList.remove("invisible");
 
+    document.getElementById('cantidad').value = 1;
+    inicio=document.getElementById('cantidad').value;
+
     document.getElementById("CuerpoFotos").style.height= "55vh";
     document.getElementById("CuerpoFotos").style.top= "auto";
-    document.getElementById("CuerpoFotos").style.position= "relative";    
+    document.getElementById("CuerpoFotos").style.position= "relative"; 
+    
+    productoEnCarrusel=ordenProducto;
 }
 //-----------------------------------------------------------------
 

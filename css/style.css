@@ -137,7 +137,7 @@ body{
 .carousel-inner{
     border-radius: 10px;
 }
-/*----------------------------------------------------------------------*/
+
 .card-title{
     width: 95%;
     margin-bottom: 0;
@@ -171,12 +171,19 @@ body{
     margin-top: 10px;
     text-align: center;
     margin-bottom: 0rem;
+    font-family: 'Tangerine', serif;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 #precio{
     text-align: right;
     margin-right: 10px;
-    margin-bottom: 9px;    
+    margin-bottom: 9px; 
+    font-family: 'Tangerine', serif;
+    font-size: 1.5em;
+    font-weight: bold; 
+    margin:0;  
 }
 
 #CantidadCompra{
@@ -706,7 +713,7 @@ img.aumentar {
 
 /* DESKTOP */
 
-@media screen and (min-height: 640px) and (min-width:640px){
+@media screen and (min-height: 640px) , (min-width:640px){
 
     .desktoparriba {
         display:flex;
