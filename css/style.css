@@ -220,7 +220,7 @@ body{
 }
 
 #divCarrito{
-    background-image:url("/imagenes/carrito-de-compras.png");
+    background-image:url("../imagenes/carrito-de-compras.png");
     background-size:contain;
     background-repeat: no-repeat;
     background-position: left;
@@ -277,7 +277,7 @@ body{
 }
 
 #carrito{    
-    background-image:url("/imagenes/wood-2045379_1280.jpg");
+    background-image:url("../imagenes/wood.jpg");
     position: absolute;
     top: 13vh;
     bottom: 25vh;
