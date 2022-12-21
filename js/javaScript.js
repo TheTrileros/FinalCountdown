@@ -59,9 +59,13 @@ class postre{
     }
 }
 
-let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca.jpg", null, null, "Una tarta sueca", 15.90, 1, 'TartaSueca');
-let postredonuts=new postre("Donuts","imagenes/donuts.jpg", null, null, "Unos donuts", 1.99, 1, "Unos donuts")
-
+let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca1.jpg", "imagenes/tartaSueca2.jpg", "imagenes/tartaSueca3.jpg", "Una tarta sueca", 15.90, 1, 'TartaSueca');
+let postredonuts=new postre("Donuts","imagenes/donuts.jpg", "imagenes/donuts.jpg", "imagenes/donuts.jpg", "Unos donuts", 11.99, 1, "Unos donuts");
+let postreMuffins=new postre("Muffins","imagenes/muffins.jpg", null, null, "Muffins", 12.99, 1, "Muffins");
+let tartaBrigada=new postre("Tarta Brigada","imagenes/tartaBrigada.jpg", null, null, "Tarta Brigada", 13.99, 1, "Tarta Brigada");
+let tartaKikat=new postre("Tarta Kit Kat","imagenes/tartaKitKat.jpg", null, null, "Tarta Kit Kat", 13.99, 1, "Tarta Kit Kat");
+let cruasanes=new postre("Cruasanes","imagenes/cruasanes.jpg", null, null, "Cruasanes", 13.99, 1, "Crusanes");
+let todosPostres=[postreTartaSueca,postredonuts,postreMuffins,tartaBrigada,tartaKikat,cruasanes];
 let carritoCompra=[postreTartaSueca, postredonuts]
 
 let numCosasEnCarrito=carritoCompra.length;
@@ -241,21 +245,19 @@ var cantidad = document.getElementById('cantidad').value = --inicio; // Se obtie
 //Función para mostrar los productos.
 
 function mostrarTarjetas(){
-    for(let i=0; i<carritoCompra.length; i++){      
+    for(let i=0; i<todosPostres.length; i++){      
 
         let divTarjeta=document.createElement("div");        
         divTarjeta.setAttribute("class", "col");
-        divTarjeta.setAttribute("onClick",'mostrarProducto('+i+')');       
-        console.log(carritoCompra);
+        divTarjeta.setAttribute("onClick",'mostrarProducto('+i+')');
         divTarjeta.innerHTML=        
         '<div clas="h-100">'+
-            '<img src="'+carritoCompra[i].imagen1+'" class="card-img-top" alt = "'+carritoCompra[i].nombre+'"/>'+
-            '<div class="card-body">'+
-                '<h5 class="card-title">'+carritoCompra[i].nombre+'</h5>'+
-                '<p class="card-text">'+carritoCompra[i].descripcion+'</p>'+
+            '<img src="'+todosPostres[i].imagen1+'" class="card-img-top" alt = "'+todosPostres[i].nombre+'"/>'+
+            '<div class="card-body tarjeta">'+
+                '<p class="card-title">'+todosPostres[i].nombre+'</p>'+
+                '<p class="card-text">'+todosPostres[i].descripcion+'</p>'+
             '</div>'
-        '</div>' 
-        console.log(divTarjeta.children);       
+        '</div>'             
         document.getElementById("tarjetas").appendChild(divTarjeta);
 
         // '<img class="fotoProducto" src="'+carritoCompra[i].imagen1+'" />'+
@@ -275,11 +277,21 @@ function mostrarTarjetas(){
 window.addEventListener("load", mostrarTarjetas());
 
 function mostrarProducto(ordenProducto)
-{
+{    
     let tarjetas = document.getElementById("tarjetas");
     tarjetas.classList.add("invisible");
     let producto = document.getElementById("carouselExampleCaptions");
     producto.classList.remove("invisible");
-    let nombreProducto = document.getElementById("nombreProducto");
-    nombreProducto.classList.remove("invisible")
-;}
+    let detalleProducto = document.getElementById("detalleProducto");
+    detalleProducto.classList.remove("invisible");
+    let imagenDiv1=document.getElementById("imagen1");
+    let imagenDiv2=document.getElementById("imagen2");
+    let imagenDiv3=document.getElementById("imagen3");    
+    imagenDiv1.src=todosPostres[ordenProducto].imagen1;
+    imagenDiv2.src=todosPostres[ordenProducto].imagen2;
+    imagenDiv3.src=todosPostres[ordenProducto].imagen3;
+    let nombre=document.getElementById("nombre");
+    let precio=document.getElementById("precio");
+    nombre.textContent=todosPostres[ordenProducto].nombre;
+    precio.textContent=todosPostres[ordenProducto].precio;
+}
