@@ -583,6 +583,8 @@ img.aumentar {
     display: none;
 }
 
+
+/* POP UPS FOOTER */
 .popUpsDelFooter{
     position: absolute;
     top: 13vh;
@@ -596,12 +598,13 @@ img.aumentar {
     display: flex;
     align-items: center;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content:center;
 }
 
 .tituloDelPopUp{
     font-size: x-large;
     font-weight: bold;
+
 }
 
 
@@ -892,5 +895,45 @@ img.aumentar {
         padding: 2vh 2vw 1vh;
     }
     
+    .popUpsDelFooter{
+        position: absolute;
+        top: 13vh;
+        bottom: 25vh;
+        right: 0;
+        left:0;
+        height: fit-content;
+        background-color: aquamarine;
+        overflow-y: auto; 
+        display: flex;
+        align-items: center;
+        justify-content:space-evenly;
     }
+    
+    .tituloDelPopUp{
+        font-size: x-large;
+        font-weight: bold;
 
+    }
+    
+    #PiePagina{
+        display: flex;
+        background-color: aliceblue;
+        height: 8vh;
+        justify-content: space-evenly;
+        font-size: calc(2vh + 1vw);
+        font-weight: normal;
+    }
+    
+    #PiePagina p{
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+    .basicosBurbuja{
+        border-radius: 10px;
+        width: 85vw;
+        margin: auto;
+
+
+    }
+}
