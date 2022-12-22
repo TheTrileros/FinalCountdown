@@ -19,11 +19,11 @@ let pepeleraPulsada;
 
 //Objetos Pre-Creados
 let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca1.jpg", "imagenes/tartaSueca2.jpg", "imagenes/tartaSueca3.jpg", "Una tarta sueca", 15.90, 0, 'TartaSueca');
-let postredonuts=new postre("Donuts","imagenes/donuts.jpg", "imagenes/donuts.jpg", "imagenes/donuts.jpg", "Unos donuts", 11.99, 0, "Unos donuts");
-let postreMuffins=new postre("Muffins","imagenes/muffins.jpg", null, null, "Muffins", 12.99, 0, "Muffins");
-let tartaBrigada=new postre("Tarta Brigada","imagenes/tartaBrigada.jpg", null, null, "Tarta Brigada", 13.99, 0, "Tarta Brigada");
-let tartaKikat=new postre("Tarta Kit Kat","imagenes/tartaKitKat.jpg", null, null, "Tarta Kit Kat", 13.99, 0, "Tarta Kit Kat");
-let cruasanes=new postre("Cruasanes","imagenes/cruasanes.jpg", null, null, "Cruasanes", 13.99, 0, "Crusanes");
+let postredonuts=new postre("Donuts","imagenes/donuts1.jpg", "imagenes/donuts2.jpg", "imagenes/donuts3.jpg", "Rosquillas con sabores variados", 11.99, 0, "Unos donuts");
+let postreMuffins=new postre("Muffins","imagenes/muffins1.jpg", "imagenes/muffins2.jpg", "imagenes/muffins3.jpg", "Esponjosos y de gran sabor", 12.99, 0, "Muffins");
+let tartaBrigada=new postre("Tarta Brigada","imagenes/tartaBrigada1.jpg", "imagenes/tartaBrigada2.jpg", "imagenes/tartaBrigada3.jpg", "Bizcocho remojado con corazón de fresa, bañada en chocolate y decorada con fresas y frutos rojos", 13.99, 0, "Tarta Brigada");
+let tartaKikat=new postre("Tarta Kit Kat","imagenes/tartaKitKat1.jpg", "imagenes/tartaKitKat2.jpg", "imagenes/tartaKitKat3.jpg", "Bizcocho de Chocolate, húmedo y esponjoso relleno con dulce de leche", 13.99, 0, "Tarta Kit Kat");
+let cruasanes=new postre("Cruasanes","imagenes/cruasanes1.jpg", "imagenes/cruasanes2.jpg", "imagenes/cruasanes3.jpg", "La masa de brioche de nuestro croissant envuelve un suave relleno de crema al caco con avellanas", 13.99, 0, "Crusanes");
 
 //Vector con todos los objetos
 let todosPostres=[postreTartaSueca,postredonuts,postreMuffins,tartaBrigada,tartaKikat,cruasanes];
@@ -83,29 +83,33 @@ function abrirMenuLateral(){
 * obtener input del login
 * Diego
 ------------------------------------------------------------------*/
+//obtener input del login
 const txt1 = document.getElementById("UserIntro");
 const psw1 = document.getElementById("PasswordIntro");
-const btn1 = document.getElementById("botonUser");
-//btn1.addEventListener("click", fun1())
+const btn1 = document.getElementById("botonfondo");
+
 const userconst = "Trilleros";
 const pswconst = "Contraseña";
 const wb = document.getElementById("whiteboard");
 var out1;
 var out2;
 const Login = document.getElementById("Login")
-function fun1(){
+
+btn1.addEventListener("click", () =>{
     out1 = txt1.value;
     out2 = psw1.value;
     if (out1 == userconst && out2 == pswconst){
         console.log("Iniciaste Sesion");
         Login.classList.add("invisible");
         wb.classList.add("invisible")
+        console.log("iniciastesesion")
     } else{
         txt1.value = "";
         psw1.value = "";
         alert("Contraseña o Usuario incorrecto");
     }
-}
+})
+
 //---------------------------------------------------------------
 
 /*---------------------------------------------------------------
