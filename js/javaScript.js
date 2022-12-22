@@ -19,11 +19,11 @@ let pepeleraPulsada;
 
 //Objetos Pre-Creados
 let postreTartaSueca=new postre("TartaSueca", "imagenes/tartaSueca1.jpg", "imagenes/tartaSueca2.jpg", "imagenes/tartaSueca3.jpg", "Una tarta sueca", 15.90, 0, 'TartaSueca');
-let postredonuts=new postre("Donuts","imagenes/donuts1.jpg", "imagenes/donuts2.jpg", "imagenes/donuts3.jpg", "Rosquillas con sabores variados", 11.99, 0, "Unos donuts");
-let postreMuffins=new postre("Muffins","imagenes/muffins1.jpg", "imagenes/muffins2.jpg", "imagenes/muffins3.jpg", "Esponjosos y de gran sabor", 12.99, 0, "Muffins");
+let postredonuts=new postre("Donuts","imagenes/donuts1.jpg", "imagenes/donuts2.jpg", "imagenes/donuts3.jpg", "Rosquillas con sabores variados", 1.99, 0, "Unos donuts");
+let postreMuffins=new postre("Muffins","imagenes/muffins1.jpg", "imagenes/muffins2.jpg", "imagenes/muffins3.jpg", "Esponjosos y de gran sabor", 2.99, 0, "Magdalenas");
 let tartaBrigada=new postre("Tarta Brigada","imagenes/tartaBrigada1.jpg", "imagenes/tartaBrigada2.jpg", "imagenes/tartaBrigada3.jpg", "Bizcocho remojado con corazón de fresa, bañada en chocolate y decorada con fresas y frutos rojos", 13.99, 0, "Tarta Brigada");
 let tartaKikat=new postre("Tarta Kit Kat","imagenes/tartaKitKat1.jpg", "imagenes/tartaKitKat2.jpg", "imagenes/tartaKitKat3.jpg", "Bizcocho de Chocolate, húmedo y esponjoso relleno con dulce de leche", 13.99, 0, "Tarta Kit Kat");
-let cruasanes=new postre("Cruasanes","imagenes/cruasanes1.jpg", "imagenes/cruasanes2.jpg", "imagenes/cruasanes3.jpg", "La masa de brioche de nuestro croissant envuelve un suave relleno de crema al caco con avellanas", 13.99, 0, "Crusanes");
+let cruasanes=new postre("Cruasanes","imagenes/cruasanes1.jpg", "imagenes/cruasanes2.jpg", "imagenes/cruasanes3.jpg", "La masa de brioche de nuestro croissant envuelve un suave relleno de crema al caco con avellanas", 3.99, 0, "Crusanes");
 
 //Vector con todos los objetos
 let todosPostres=[postreTartaSueca,postredonuts,postreMuffins,tartaBrigada,tartaKikat,cruasanes];

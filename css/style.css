@@ -169,6 +169,7 @@ body{
 .carousel button{
     background: transparent;
     border-color: rgba(68, 68, 67, 0.274);
+    border-style: none;
 }
 
 #nombreProducto{
@@ -200,7 +201,7 @@ body{
 
 #CantidadCompra{
     display: flex;
-    background-color: rgb(234, 236, 121);
+    background-color:  #F0D67B;
     height: 20vh;
 }
 
