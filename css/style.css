@@ -1,3 +1,4 @@
+/*Configuracion global y clases de apollo*/
 *{
     margin:0;
     padding:0;
@@ -10,8 +11,43 @@ body{
 .invisible{
     display: none;
 }
+
+/*Fondo blanco para el login*/
+#whiteboard{
+    position: absolute;
+    background-color: white;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+}
+/*------------------------------------------*/
+
+/*Clases para pantallas pequeñas*/
 @media screen and (max-height: 640px) and (max-width:640px){
-    
+
+/*Boton Volver, para volver de la tarta del carrusel a las tarjetas*/
+.btnVolver{
+    z-index: 3;
+    position: absolute;
+    top: 64vh;
+    left: 5vw;
+    background-color: transparent;
+    width: 0vw;
+    height: 0vw;
+    border-right: 10vw solid #90CDD6;
+    border-top: 5vw solid transparent;
+    border-bottom: 5vw solid transparent;
+    box-shadow: 2vw 0 0 0 #1492cc75;
+}
+
+#botonVolver p{
+    background-color: #90CDD6;
+    font-weight: bold;
+    font-family: 'Tangerine', serif;
+    font-size: calc(3vh + 3vw);
+}
+
+/*Este es el div padre*/
 #Principal{
     background-color: rgba(141, 123, 136, 0.801);
     width: 95vw;
@@ -19,15 +55,17 @@ body{
     margin: auto; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;    
+    justify-content: space-between;
 }
 
+/*Clase de apollo para asegurar la uniformidad en ancho y aspecto de bordes*/
 .basicosBurbuja{
     border-radius: 10px;
     width: 85vw;
     margin: 0 auto;
 }
 
+/*Estilo para la etiqueta nav*/
 #Navegador{
     display: grid;
     grid-template-columns: 1fr 15vw 50vw 15vw 1fr;
@@ -43,64 +81,95 @@ body{
     z-index: 3;  
 }
 
-#whiteboard{
-    position: absolute;
-    background-color: white;
-    z-index: 3;
-    width: 95%;
-    height: 120%;
-}
-
+/*div principal donde se muestran las tarjetas y el carrusel*/
 #CuerpoFotos{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background-color: aliceblue;
-    height: 55vh;
+    justify-content: center;    
+    background-color: #F0D67B;
+    height: 78vh;
+    position:absolute;
+    left:0;
+    right: 0;
+    top:13vh;
     overflow-y: auto ;    
 }
 
+
 .tarjetas{
     height: 80%;
-    width: 80%;
+    width: 95%;
+    padding: 0;
+    overflow-y: auto;     
 }
 
-.tarjeta{
-    font-family: 'Tangerine', serif;    
-    font-weight: bolder;
+.card{
+    height: 50px;
+    width: 50px;
 }
 
-.h-100 h5{
-    font-size: 10px;
+.h-100{
+    background-color: rgb(243, 239, 228);
+    border-radius: 10px;
+    width:35vw;
+    height: 100%;
+    margin:0;
+    
+}
+
+.h-100 img{
+    height: 50%;
+    image-rendering: auto;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.col{
+    margin-bottom: 2vh;
+    
+    padding-right:0;
+    padding-left: 0;    
 }
 
 .h-100 p{
-    font-size: 10px;
+    text-align: center; 
+    font-family: 'Tangerine', serif;
+    font-size: 100%;
 }
 
 .carousel-inner{
-    border-radius: 10px;    
+    border-radius: 10px;
 }
 
- .carousel{
+.card-text{
+
+}
+
+.card-body{
+    height: 50%;
+}
+
+.card-title{
+    width: 95%;
+    margin-bottom: 0;
+}
+
+.carousel{
     height: 41vh;
     width: 78vw;
 }
 
-.detalleProducto{
-    font-family: 'Tangerine', serif;
-}
-
-.carousel img{   
+.carousel img{
+   
     height: 40vh;
     width: 50vh;
-} 
+}
 
- .carousel button{
+.carousel button{
     background: transparent;
-    border-style: none;
-} 
+    border-color: rgba(68, 68, 67, 0.274);
+}
 
 #nombreProducto{
     display: flex;
@@ -114,12 +183,19 @@ body{
     margin-top: 10px;
     text-align: center;
     margin-bottom: 0rem;
+    font-family: 'Tangerine', serif;
+    font-size: 2em;
+    font-weight: bold;
 }
 
 #precio{
     text-align: right;
     margin-right: 10px;
-    margin-bottom: 9px;
+    margin-bottom: 9px; 
+    font-family: 'Tangerine', serif;
+    font-size: 1.5em;
+    font-weight: bold; 
+    margin:0;  
 }
 
 #CantidadCompra{
@@ -130,7 +206,7 @@ body{
 
 #PiePagina{
     display: flex;
-    background-color: aliceblue;
+    background-color: #90CDD6;
     height: 8vh;
     justify-content: space-evenly;
     font-size: calc(2vh + 1vw);
@@ -142,6 +218,7 @@ body{
     align-items: center;
     height: 100%;
     margin-bottom: 0;
+    overflow: hidden;    
 }
 
 #imagenMenuHamburguesa{
@@ -155,7 +232,7 @@ body{
 }
 
 #divCarrito{
-    background-image:url("imagenes/carrito-de-compras.png");
+    background-image:url("../imagenes/carrito-de-compras.png");
     background-size:contain;
     background-repeat: no-repeat;
     background-position: left;
@@ -212,9 +289,9 @@ body{
 }
 
 #carrito{    
-    background-image:url("/imagenes/wood-2045379_1280.jpg");
+    background-image:url("../imagenes/wood.jpg");
     position: absolute;
-    top: 12vh;
+    top: 13vh;
     bottom: 25vh;
     right: 0;
     left:0;
@@ -401,10 +478,12 @@ footer{
     font-weight: bold;
     text-align: left; 
     align-items:flex-end;
-    overflow: hidden;       
+    overflow: hidden; 
+    
+    line-height:80%;
 
-    display:grid;
-    grid-template-columns: 25% 5% 45% 15% 10%;
+    display: grid;
+    grid-template-columns: 25% 5% 35% 15% 5% 5% 10%;
     grid-template-rows: 70% 30%;
 }
 
@@ -424,29 +503,60 @@ footer{
 .nombreProducto{
     grid-column: 3;
     grid-row: 1;
-    overflow: hidden;     
+    line-height:1.15;
+    overflow: hidden; 
 }
 
 .precioProducto{
+    line-height:1.15;
     grid-column: 3;
     grid-row: 2;
     overflow: hidden; 
 }
 
 .cantidadProducto{
-    grid-column: 4;
+    grid-column: 4/6;
     grid-row: 1;
-    overflow: hidden; 
+    overflow: hidden;
+    justify-items: center;      
+
+    height: 100%;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.textoCantidad{
+    height: 50%;
+    grid-column: 1;
+    grid-row: 1/3;
+    margin:0;
+
+    justify-self:right;
+    align-self: center;
+}
+
+.flechaCantidadAbajo{
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.flechaCantidadArriba{
+    grid-column: 2;
+    grid-row: 1;
+    align-self: end;
+    
 }
 
 .precioProductoTotal{
+    line-height:1.15;
     grid-column: 4;
     grid-row: 2;
     overflow: hidden; 
 }
 
 .iconoPapelera{
-    grid-column: 5;
+    grid-column: 7;
     grid-row: 1/2;
     width:70%;
 }
@@ -484,7 +594,7 @@ footer{
         width: 90vw;
         height: 20vh;
         padding-right: 10%;
-        padding-left: 10%;
+        padding-left: 5%;
 }
 
 .cajadecantidad h1 {
@@ -495,12 +605,14 @@ footer{
 /* TEXTO */
 
 .ponme {
+    display:flex;
     max-height: 90%;
-    margin-left: 4%;
     margin-right: 4%;
     color: white;
-    max-width: 25%;
-    font-size: calc(100% - vw - vh);
+    max-width: 32%;
+    font-family: 'Tangerine', serif;
+    font-size: calc(3vw + 4vh);
+    word-wrap: break-word;
 }
 
 /* CANTIDAD */
@@ -508,8 +620,8 @@ footer{
 .cantidadcuadrado {
     background-color: white;
     border-radius: 10px;
-    height: 10vh;
-    width: 32%;
+    height: 8vh;
+    width: 25%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -581,13 +693,40 @@ img.aumentar {
     display: none;
 }
 
+
+/* POP UPS FOOTER */
+.popUpsDelFooter{
+    position: absolute;
+    top: 13vh;
+    bottom: 25vh;
+    right: 0;
+    left:0;
+    height: calc(100vh - 13vh - 9vh);
+    background-color: aquamarine;
+    padding-bottom: 2vh;
+    overflow-y: auto; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content:center;
+}
+
+.tituloDelPopUp{
+    font-size: x-large;
+    font-weight: bold;
+
+}
+
+
+
+
 }
 
 /*Control de apariencia DESKTOP (Kevin)*/
 
 /* DESKTOP */
 
-@media screen and (min-height: 640px) and (min-width:640px){
+@media screen and (min-height: 640px) , (min-width:640px){
 
     .desktoparriba {
         display:flex;
@@ -646,12 +785,12 @@ img.aumentar {
     }
     
     #CuerpoFotos{
-         display: none; 
+        display: none;
     }
     
     #CantidadCompra{
         display: grid;
-        background-color: rgb(224, 209, 72);
+        background-color: #e0d148;
         height: 20vh;
     }
     
@@ -667,6 +806,133 @@ img.aumentar {
     .cajadecantidad h1 {
         width: 40%;
         overflow: hidden;
+    }
+
+    /*Pantalla login*/
+    #Login{
+        position: absolute;
+        top: 0vh;
+        bottom: 0vh;
+        right: 0;
+        left:0;
+        height: 100%;
+    
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-items: center;
+
+        z-index: 4;
+        margin-right: 25px;
+        margin-left: 25px;
+        color: rgb(197, 197, 197);
+       border-radius: 30px;    
+    }
+
+    #tempnav{
+
+        display: flex;
+        justify-content: center;
+        align-items: top;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        padding-bottom: 60px;
+        color: rgb(41, 41, 41);
+        background-color: #f2e794;
+    }
+
+    #Texts{
+        align-items: center;
+        background-image: url(https://images.pexels.com/photos/91484/pexels-photo-91484.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+        background-size: cover;
+        font-size: 32px;
+        color: white;
+        padding-left: 50px;
+        padding-right: 50px;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        display: flex;
+        -webkit-text-stroke: 0.006in black;
+        flex-direction: column;
+        row-gap: 10px;
+        color: white;
+
+    }
+
+    #Username{
+        background-color: rgb(190, 190, 190);
+        border-radius: 20px;
+        display: flex;   
+        width: 60%;
+        flex-direction: column;
+        padding: 10px;
+    }
+    #Password{
+        background-color: rgb(190, 190, 190);
+        border-radius: 20px;
+        display: flex;
+        padding: 10px;
+        flex-direction: column;
+        width: 60%;
+
+    }
+
+#UserIntro{
+    margin-left: 10px; 
+    border: solid 1px white;   
+    border-radius: 20px;
+    
+}
+#PasswordIntro{
+    margin-left: 10px;
+    border: solid 1px white;   
+    border-radius: 20px;
+}
+
+#botonUser{
+    background-color: #6670a4;
+    margin-left: auto;
+    font-size: 24px;
+    width: 120px;
+    height: 50px;
+    margin: auto;
+    border-radius: 20px;
+    border: solid 1px #6670a4;   
+    color: white;
+}
+#botonfondo{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: flex;
+    justify-items: center;
+    background-color: #90CDD6;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+#olvidapsw{
+    position: absolute;
+    margin-top: 0px;
+    z-index: -1;
+    align-items: center;
+    margin-left: 4px;
+    margin-top: 75vh;
+    height: 10%;
+    width: 99%;
+    display: flex;
+    padding-top: 35px;
+    justify-content: center;
+    color: black;
+    font-size: 24px;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    }
+
+    input{
+    width: auto;
     }
     
     /* TEXTO */
@@ -866,4 +1132,44 @@ img.aumentar {
         padding: 2vh 2vw 1vh;
     }
     
+    .popUpsDelFooter{
+        position: absolute;
+        top: 13vh;
+        bottom: 25vh;
+        right: 0;
+        left:0;
+        height: fit-content;
+        background-color: aquamarine;
+        overflow-y: auto; 
+        display: flex;
+        align-items: center;
+        justify-content:space-evenly;
     }
+    
+    .tituloDelPopUp{
+        font-size: x-large;
+        font-weight: bold;
+
+    }
+    
+    #PiePagina{
+        display: flex;
+        background-color: aliceblue;
+        height: 8vh;
+        justify-content: space-evenly;
+        font-size: calc(2vh + 1vw);
+        font-weight: normal;        
+    }
+    
+    #PiePagina p{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        
+    }
+    .basicosBurbuja{
+        border-radius: 10px;
+        width: 85vw;
+        margin: auto;
+    }
+}
