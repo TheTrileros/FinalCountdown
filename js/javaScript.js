@@ -87,7 +87,7 @@ function abrirMenuLateral(){
 const txt1 = document.getElementById("UserIntro");
 const psw1 = document.getElementById("PasswordIntro");
 const btn1 = document.getElementById("botonfondo");
-
+/*
 const userconst = "Trilleros";
 const pswconst = "Contraseña";
 const wb = document.getElementById("whiteboard");
@@ -109,7 +109,7 @@ btn1.addEventListener("click", () =>{
         alert("Contraseña o Usuario incorrecto");
     }
 })
-
+*/
 //---------------------------------------------------------------
 
 /*---------------------------------------------------------------
@@ -408,7 +408,7 @@ function mostrarProducto(ordenProducto)
     let nombre=document.getElementById("nombre");
     let precio=document.getElementById("precio");
     nombre.textContent=todosPostres[ordenProducto].nombre;
-    precio.textContent=todosPostres[ordenProducto].precio.toFixed(2);
+    precio.textContent=todosPostres[ordenProducto].precio.toFixed(2)+'€';
     let cajaCantidad = document.getElementById("CantidadCompra");
     cajaCantidad.classList.remove("invisible");
     let btnVuelta = document.getElementById("botonVolver");
