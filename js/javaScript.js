@@ -87,7 +87,7 @@ function abrirMenuLateral(){
 const txt1 = document.getElementById("UserIntro");
 const psw1 = document.getElementById("PasswordIntro");
 const btn1 = document.getElementById("botonfondo");
-/*
+
 const userconst = "Trilleros";
 const pswconst = "Contraseña";
 const wb = document.getElementById("whiteboard");
@@ -109,7 +109,7 @@ btn1.addEventListener("click", () =>{
         alert("Contraseña o Usuario incorrecto");
     }
 })
-*/
+
 //---------------------------------------------------------------
 
 /*---------------------------------------------------------------
